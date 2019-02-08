@@ -1,0 +1,10 @@
+[build-system]
+# Minimum requirements for the build system to execute.
+# See https://www.python.org/dev/peps/pep-0518/
+requires = [
+    # Support for setup.cfg was added in 30.3.0 by
+    # https://github.com/pypa/setuptools/pull/862
+    "setuptools>=30.3.0",
+    # For building wheels
+    "wheel",
+]

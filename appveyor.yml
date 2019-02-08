@@ -1,0 +1,47 @@
+# AppVeyor configuration file
+# https://www.appveyor.com/docs/appveyor-yml
+
+# Test tox env matching AppVeyor Python version
+# https://stackoverflow.com/a/46103989
+#
+# List of pre-installed Python versions:
+# https://www.appveyor.com/docs/windows-images-software/#python
+environment:
+  matrix:
+    - PYTHON: "C:\\Python27"
+      TOXENV: "lint,py27"
+    - PYTHON: "C:\\Python34"
+      TOXENV: py34
+    - PYTHON: "C:\\Python37"
+      TOXENV: py37
+    - python: pypy
+      env: TOXENV=pypy27
+    - python: pypy3.5
+      env: TOXENV=pypy35
+
+# If the package has arch-dependent features, uncomment this and add -x64
+# versions to matrix above (and possibly excluding non-x64 on x86 platform).
+# platform:
+#  - x86
+#  - x64
+
+install:
+  - '"%PYTHON%\\python.exe" -m pip install tox wheel'
+
+# Disable build step, which we don't need
+build: off
+
+test_script:
+  - tox
+
+after_test:
+  # build wheels
+  - 'build.cmd "%PYTHON%\\python.exe" setup.py bdist_wheel'
+
+artifacts:
+  # save wheels as build artifacts
+  - path: dist\*
+
+# If any job fails, fail build immediately to avoid wasting time/resources.
+matrix:
+  fast_finish: true

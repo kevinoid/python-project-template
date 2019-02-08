@@ -1,0 +1,9 @@
+# Abstract top-level development dependencies (e.g. linters and other tools)
+bandit
+eradicate
+isort
+pylama
+pylint
+pylint-quotes
+pyroma
+vulture

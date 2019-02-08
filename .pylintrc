@@ -1,0 +1,41 @@
+[MASTER]
+load-plugins =
+    pylint.extensions.bad_builtin,
+    pylint.extensions.check_elif,
+    pylint.extensions.docparams,
+    pylint.extensions.emptystring,
+    pylint.extensions.overlapping_exceptions,
+    pylint.extensions.redefined_variable_type,
+    pylint_quotes
+
+[MESSAGES CONTROL]
+disable =
+    fixme,
+    locally-disabled,
+    locally-enabled
+
+[FORMAT]
+max-line-length = 80
+ignore-long-lines = ^\s*(# )?<?https?://\S+>?$
+
+# Enforce string quoting style
+# Follow PEP 257 recommendation to use double quotes around docstrings
+docstring-quote = double
+string-quote = single-avoid-escape
+triple-quote = single
+
+[BASIC]
+bad-names =
+    # _LOGGER is too loud, even if it is more consistent
+    _LOGGER,
+good-names =
+    # Ok for throw-away values
+    _,
+    # _LOGGER is too loud, even if it is more consistent
+    _logger,
+    # Single-letter index names with small scopes are ok
+    i,
+    j,
+    k,
+
+# vi: set ft=dosini :
