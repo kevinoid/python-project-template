@@ -38,4 +38,12 @@ good-names =
     j,
     k,
 
+# pylint.extensions.docparams options
+# https://pylint.readthedocs.io/en/latest/technical_reference/extensions.html#parameter-documentation-checker-options
+accept-no-param-doc = no
+accept-no-raise-doc = no
+accept-no-return-doc = no
+accept-no-yields-doc = no
+default-docstring-type = sphinx
+
 # vi: set ft=dosini :
