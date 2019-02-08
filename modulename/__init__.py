@@ -28,7 +28,12 @@ _logger = logging.getLogger(__name__)
 
 
 def _setup_logging(level=None):
-    """Initialize the logging framework with a root logger for the console."""
+    """
+    Initialize the logging framework with a root logger for the console.
+
+    :param level: log level suitable for :py:func:`logging.Logger.setLevel`
+    :type level: int
+    """
     handler = logging.StreamHandler()
     rootlogger = logging.getLogger()
     rootlogger.addHandler(handler)
@@ -37,7 +42,14 @@ def _setup_logging(level=None):
 
 
 def main(*argv):
-    """Entry point for modulename command-line tool."""
+    """
+    Entry point for modulename command-line tool.
+
+    :param argv: command-line arguments (usually :py:data:`sys.argv`)
+
+    :return: exit code
+    :rtype: int
+    """
     parser = argparse.ArgumentParser(
         usage='%(prog)s [options] <file...>',
         description='Do modulename stuff.',
