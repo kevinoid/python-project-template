@@ -1,0 +1,9 @@
+# Additional files to include in package source distribution
+# https://packaging.python.org/guides/distributing-packages-using-setuptools/#manifest-in
+
+include LICENSE.txt
+include README.rst
+
+# Minimally-constrained requirements files are used by setup.py,
+# so must be included.  See https://stackoverflow.com/a/38533721
+include *requirements*.in
