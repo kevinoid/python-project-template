@@ -9,10 +9,13 @@
 environment:
   matrix:
     - PYTHON: "C:\\Python27"
-      TOXENV: "lint,py27"
+      TOXENV: py27
     - PYTHON: "C:\\Python34"
       TOXENV: py34
     - PYTHON: "C:\\Python37"
+      # Uncomment to lint using Python 3.7
+      # Commented since already checked using Travis CI
+      # TOXENV: "lint,py37"
       TOXENV: py37
     - python: pypy
       env: TOXENV=pypy27
