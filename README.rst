@@ -88,6 +88,13 @@ Installation
 Recipes
 =======
 
+.. code:: python
+
+   import packagename
+
+   packagename.bar(packagename.baz())
+
+.. === End of Sphinx index content ===
 
 API Docs
 ========
@@ -106,6 +113,8 @@ License
 =======
 
 This template is available under the terms of `CC0 1.0 Universal`_.
+
+.. === Begin reference names ===
 
 .. _API documentation: https://kevinoid.github.io/python-project-template/api
 .. _AppVeyor: https://appveyor.com/
