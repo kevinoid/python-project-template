@@ -1,7 +1,7 @@
 # This file is part of python-project-template
 # Made available under CC0 1.0 Universal, see LICENSE.txt
 # Copyright 2019 Kevin Locke <kevin@kevinlocke.name>
-"""modulename module."""
+"""packagename module."""
 
 import argparse
 import logging
@@ -15,11 +15,11 @@ _VERSION_MESSAGE = '%(prog)s ' + __version__ + '''
 
 Copyright 2019 Kevin Locke <kevin@kevinlocke.name>
 
-modulename is free software; you can redistribute it and/or modify
+packagename is free software; you can redistribute it and/or modify
 it under the terms of the CC0 1.0 Universal (CC0 1.0) Public Domain
 Dedication published by Creative Commons.
 
-modulename is distributed in the hope that it will be useful,
+packagename is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 CC0 1.0 Universal (CC0 1.0) Public Domain Dedication for more details.'''
@@ -43,7 +43,7 @@ def _setup_logging(level=None):
 
 def main(*argv):
     """
-    Entry point for modulename command-line tool.
+    Entry point for packagename command-line tool.
 
     :param argv: command-line arguments (usually :py:data:`sys.argv`)
 
@@ -52,7 +52,7 @@ def main(*argv):
     """
     parser = argparse.ArgumentParser(
         usage='%(prog)s [options] <file...>',
-        description='Do modulename stuff.',
+        description='Do packagename stuff.',
         # Use raw formatter to avoid mangling version text
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
@@ -70,7 +70,7 @@ def main(*argv):
         version=_VERSION_MESSAGE)
     parser.add_argument(
         'input_files', nargs='+', metavar='file...',
-        help='File(s) on which to do modulename stuff')
+        help='File(s) on which to do packagename stuff')
     args = parser.parse_args(args=argv[1:])
 
     # Set log level based on verbosity requested (default of INFO)
@@ -78,7 +78,7 @@ def main(*argv):
     _setup_logging(logging.INFO + verbosity * 10)
 
     # Log version to aid debugging
-    _logger.debug('modulename %s', __version__)
+    _logger.debug('packagename %s', __version__)
 
     try:
         # Do stuff here

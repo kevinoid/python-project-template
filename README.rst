@@ -37,9 +37,9 @@ Introductory Example
 
 .. code:: python
 
-   import modulename
+   import packagename
 
-   modulename.foo()
+   packagename.foo()
 
 
 (Mis-)Features
