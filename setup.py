@@ -31,6 +31,23 @@ except ImportError:
     )
 
 
+def _load_requirements(req_path):
+    """
+    Read requirements specifications from a given file path.
+
+    :param req_path: path of requirements file to load
+    :type req_path: str
+
+    :return: list of requirement specifications (as strings) in ``req_path``
+    :rtype: List[str]
+    """
+    with open(req_path) as req_file:
+        # FIXME: Move deps with markers to extra_depends for old setuptools?
+        # https://hynek.me/articles/conditional-python-dependencies/#fixing-sdist
+        # https://github.com/pypa/setuptools/issues/1080
+        return [str(req) for req in parse_requirements(req_file)]
+
+
 setup_requires = []
 
 # Use pytest-runner for `setup.py test`.  Only install when testing.
@@ -39,15 +56,8 @@ setup_requires = []
 if {'pytest', 'test', 'ptr'}.intersection(sys.argv):
     setup_requires.append('pytest-runner')
 
-# Test requirements in requirements-test.in for venv installation & pip-compile
-# See https://github.com/jazzband/pip-tools/pull/492
-with open('requirements-test.in') as test_req_file:
-    # FIXME: Need a good way to handle install markers
-    # See https://github.com/pypa/setuptools/issues/1080
-    tests_require = [
-        str(test_req) for test_req in parse_requirements(test_req_file)
-    ]
-
 setup(
+    install_requires=_load_requirements('requirements.in'),
     setup_requires=setup_requires,
+    tests_require=_load_requirements('requirements-test.in'),
 )

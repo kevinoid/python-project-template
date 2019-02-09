@@ -46,25 +46,33 @@ Introductory Example
 ==============
 
 * Minimally constrained top-level dependencies are declared in
-  ``install_requires`` in ``setup.cfg``.  Test and development tool
-  dependencies are declared in ``requirements-test.in`` and
-  ``requirements-dev.in`` respectively.  Full, exact, known-good dependency
-  versions are stored in ``requirements.txt``, ``requirements-test.txt``, and
-  ``requirements-dev.txt``.  These can be generated using ``pip-compile`` from
-  pip-tools_ or ``pip install && pip freeze`` in a fresh virtual environment:
+  ``requirements*.in`` files.  Full, exact, known-good dependency versions
+  are stored in ``requirements*.txt``.  These can be generated using
+  ``pip-compile`` from pip-tools_ or ``pip install && pip freeze`` in a fresh
+  virtual environment:
 
   .. code:: sh
 
-      pip-compile -o requirements.txt setup.py
-      pip-compile -o requirements-test.txt requirements-test.in
-      pip-compile -o requirements-dev.txt requirements-dev.in
+      for requirements in requirements*.in ; do
+          pip-compile "$requirements"
+      done
+
+  This system has the benefit of allowing easy installation of fully or
+  minimally constrained dependencies from many tools (``setup.py``, ``pip``,
+  ``tox``, etc.) without duplication.
 
   I have experimented with several other approaches, including `pip constraint
   files`_ (``constraints.txt``), Pipenv_ (``Pipfile``/``Pipfile.lock``),
   Poetry_ (``pyproject.toml``), and a few others, along with other tools to
   sync with or generate ``requirements.txt`` and ``setup.cfg``.  Although these
-  tools are useful, I think the additional complexity (both inherent and when
-  integrating with other tools like tox) currently outweighs their value.
+  approaches have several benefits, I think the additional complexity (both
+  inherent and when integrating with other tools like tox) currently outweighs
+  their value.
+* `tox`_ (used for CI) is configured to use minimally constrained dependencies.
+  This is desirable for library packages, since user installs are minimally
+  constrained.  If the package will be deployed as an application using
+  ``requirements.txt``, consider changing ``requirements*.in`` to
+  ``requirements*.txt`` in ``tox.ini`` to test using exact dependency versions.
 
 
 Installation
