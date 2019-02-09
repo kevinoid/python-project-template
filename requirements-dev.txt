@@ -4,14 +4,10 @@
 #
 #    pip-compile --output-file requirements-dev.txt requirements-dev.in
 #
-astroid==1.6.5            # via pylint
-backports.functools-lru-cache==1.5  # via astroid, pylint
+astroid==2.1.0            # via pylint
 bandit==1.5.1
-configparser==3.7.1       # via pydocstyle, pylint
 docutils==0.14            # via pyroma
-enum34==1.1.6             # via astroid
 eradicate==1.0
-futures==3.2.0            # via isort
 gitdb2==2.0.5             # via gitpython
 gitpython==2.1.11         # via bandit
 isort==4.3.4
@@ -22,12 +18,11 @@ pycodestyle==2.5.0        # via pylama
 pydocstyle==3.0.0         # via pylama
 pyflakes==2.1.0           # via pylama
 pylama==7.6.6
-pylint-quotes==0.1.8
-pylint==1.9.4
+pylint-quotes==0.2.1
+pylint==2.2.2
 pyroma==2.4
 pyyaml==3.13              # via bandit
-singledispatch==3.4.0.3   # via astroid, pylint
-six==1.12.0               # via astroid, bandit, pydocstyle, pylint, singledispatch, stevedore
+six==1.12.0               # via astroid, bandit, pydocstyle, stevedore
 smmap2==2.0.5             # via gitdb2
 snowballstemmer==1.2.1    # via pydocstyle
 stevedore==1.30.0         # via bandit
