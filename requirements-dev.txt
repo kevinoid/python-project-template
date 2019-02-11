@@ -9,6 +9,7 @@ astroid==2.1.0            # via pylint
 attrs==18.2.0             # via black
 bandit==1.5.1
 black==18.9b0
+blacken-docs==0.3.0
 click==7.0                # via black
 docutils==0.14            # via pyroma
 eradicate==1.0
