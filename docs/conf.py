@@ -30,7 +30,7 @@ with open(os.path.join(_project_path, 'setup.cfg')) as _setup_file:
     if hasattr(_setup_cfg, 'read_file'):
         _setup_cfg.read_file(_setup_file)
     else:
-        _setup_cfg.readfp(_setup_file)
+        _setup_cfg.readfp(_setup_file)  # pylint: disable=deprecated-method
 
 
 # -- Project information -----------------------------------------------------
