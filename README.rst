@@ -21,9 +21,9 @@ Project Template
    :alt: Version on PyPI
    :target: https://pypi.org/project/python-project-template/
 
-A Python project template with pytest_, tox_, AppVeyor_, `Travis CI`_,
-coveralls_, Codecov_, and several linters (including pylama_, Bandit_, pyroma_,
-and others).
+A Python project template with pytest_, tox_, Sphinx_ (with sphinx-apidoc_ and
+sphinx-argparse_), AppVeyor_, `Travis CI`_, coveralls_, Codecov_, and several
+linters (including pylama_, Bandit_, Black_, pyroma_, and others).
 
 This template is the basis of my own Python projects, representing my current
 preferences.  I am not advocating for these choices nor this template
@@ -119,10 +119,12 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _API documentation: https://kevinoid.github.io/python-project-template/api
 .. _AppVeyor: https://appveyor.com/
 .. _Bandit: https://github.com/PyCQA/bandit
+.. _Black: https://github.com/ambv/black
 .. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
 .. _Codecov: https://codecov.io/
 .. _Pipenv: https://pipenv.readthedocs.io/
 .. _Poetry: https://poetry.eustace.io/
+.. _Sphinx: https://www.sphinx-doc.org/
 .. _Travis CI: https://travis-ci.org/
 .. _contributing guidelines: CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
@@ -132,5 +134,7 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _pylama: https://github.com/klen/pylama
 .. _pyroma: https://github.com/regebro/pyroma
 .. _pytest: https://pytest.org/
+.. _sphinx-apidoc: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
+.. _sphinx-argparse: https://sphinx-argparse.readthedocs.io
 .. _this package: https://pypi.org/project/python-project-template/
 .. _tox: https://tox.readthedocs.io
