@@ -6,6 +6,6 @@
 
 import sys
 
-from packagename import main
+from .cli import main
 
 sys.exit(main(*sys.argv))
