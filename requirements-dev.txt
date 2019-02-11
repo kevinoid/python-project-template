@@ -4,8 +4,12 @@
 #
 #    pip-compile --output-file requirements-dev.txt requirements-dev.in
 #
+appdirs==1.4.3            # via black
 astroid==2.1.0            # via pylint
+attrs==18.2.0             # via black
 bandit==1.5.1
+black==18.9b0
+click==7.0                # via black
 docutils==0.14            # via pyroma
 eradicate==1.0
 gitdb2==2.0.5             # via gitpython
@@ -26,5 +30,6 @@ six==1.12.0               # via astroid, bandit, pydocstyle, stevedore
 smmap2==2.0.5             # via gitdb2
 snowballstemmer==1.2.1    # via pydocstyle
 stevedore==1.30.0         # via bandit
+toml==0.10.0              # via black
 vulture==1.0
 wrapt==1.11.1             # via astroid

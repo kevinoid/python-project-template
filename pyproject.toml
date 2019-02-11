@@ -8,3 +8,9 @@ requires = [
     # For building wheels
     "wheel",
 ]
+
+[tool.black]
+line-length = 80
+# Note: Would prefer normalization to single quote strings, double docstrings
+# Not supported:  https://github.com/ambv/black/issues/373
+skip-string-normalization = true
