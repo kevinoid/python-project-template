@@ -22,6 +22,7 @@ pbr==5.1.2                # via stevedore
 pycodestyle==2.5.0        # via pylama
 pydocstyle==3.0.0         # via pylama
 pyflakes==2.1.0           # via pylama
+pygments==2.3.1
 pylama==7.6.6
 pylint-quotes==0.2.1
 pylint==2.2.2

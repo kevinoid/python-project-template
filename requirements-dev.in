@@ -7,6 +7,9 @@ eradicate
 # flake8-bugbear
 isort
 pylama
+# Required for `setup.py check --restructuredtext --strict`.  Otherwise:
+# warning: check: Cannot analyze code. Pygments package not found.
+pygments
 pylint
 pylint-quotes
 pyroma
