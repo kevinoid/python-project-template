@@ -1,2 +1,3 @@
 # Abstract top-level documentation generator dependencies
 Sphinx
+sphinx-argparse
