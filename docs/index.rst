@@ -9,6 +9,7 @@ Documentation Contents
    :maxdepth: 2
 
    cli
+   api/modules
    contributing
    Issue Tracker <https://github.com/kevinoid/python-project-template/issues>
    License <https://github.com/kevinoid/python-project-template/raw/master/LICENSE.txt>
