@@ -1,0 +1,4 @@
+[bandit]
+exclude = /.tox/,/.venv/
+
+# vim: set ft=dosini :
