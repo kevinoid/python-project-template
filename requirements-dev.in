@@ -1,6 +1,8 @@
 # Abstract top-level development dependencies (e.g. linters and other tools)
 bandit
 eradicate
+# Would be nice to include, but most flake8 checks are redundant with pylama:
+# flake8-bugbear
 isort
 pylama
 pylint
