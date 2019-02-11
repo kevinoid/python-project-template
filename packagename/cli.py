@@ -11,7 +11,10 @@ from . import __version__
 # Short license message varies by license.
 # The text below is based on the GPL short text, modified for CC0.
 # Change as appropriate.
-_VERSION_MESSAGE = '%(prog)s ' + __version__ + '''
+_VERSION_MESSAGE = (
+    '%(prog)s '
+    + __version__
+    + '''
 
 Copyright 2019 Kevin Locke <kevin@kevinlocke.name>
 
@@ -23,6 +26,7 @@ packagename is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 CC0 1.0 Universal (CC0 1.0) Public Domain Dedication for more details.'''
+)
 
 _logger = logging.getLogger(__name__)
 
@@ -52,23 +56,40 @@ def _build_argument_parser():
         usage='%(prog)s [options] <file...>',
         description='Do packagename stuff.',
         # Use raw formatter to avoid mangling version text
-        formatter_class=argparse.RawDescriptionHelpFormatter)
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument(
-        '-o', '--output', type=argparse.FileType('w'), default='-',
-        help='Output file (default: -)')
+        '-o',
+        '--output',
+        type=argparse.FileType('w'),
+        default='-',
+        help='Output file (default: -)',
+    )
     parser.add_argument(
-        '-q', '--quiet', action='count',
-        help='Decrease verbosity (less detailed output)')
+        '-q',
+        '--quiet',
+        action='count',
+        help='Decrease verbosity (less detailed output)',
+    )
     parser.add_argument(
-        '-v', '--verbose', action='count',
-        help='Increase verbosity (more detailed output)')
+        '-v',
+        '--verbose',
+        action='count',
+        help='Increase verbosity (more detailed output)',
+    )
     parser.add_argument(
-        '-V', '--version', action='version',
+        '-V',
+        '--version',
+        action='version',
         help='Output version and license information',
-        version=_VERSION_MESSAGE)
+        version=_VERSION_MESSAGE,
+    )
     parser.add_argument(
-        'input_files', nargs='+', metavar='file...',
-        help='File(s) on which to do packagename stuff')
+        'input_files',
+        nargs='+',
+        metavar='file...',
+        help='File(s) on which to do packagename stuff',
+    )
     return parser
 
 
@@ -94,7 +115,7 @@ def main(*argv):
     try:
         # Do stuff here
         pass
-    except Exception as exc:    # pylint: disable=broad-except
+    except Exception as exc:  # pylint: disable=broad-except
         _logger.error('Unhandled Error: %s', exc, exc_info=True)
         return 1
 

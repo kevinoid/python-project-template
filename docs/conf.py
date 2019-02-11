@@ -44,10 +44,12 @@ author = '%s <%s>' % (
 copyright = _setup_cfg.get('metadata', 'copyright')
 # pylint: enable=redefined-builtin
 
-# pylint: disable=import-error
 # The full version, including alpha/beta/rc tags
+# pylint: disable=import-error
 from packagename import __version__ as release  # noqa: E402
+
 # pylint: enable=import-error
+
 # The short X.Y version
 version = re.match('[0-9.]+', release).group(0)
 
@@ -101,9 +103,9 @@ pygments_style = 'sphinx'
 # Additional reStructuredText to include at the end of every source
 # Define some useful substitutions:
 rst_epilog = '\n'.join(
-    '.. |' + name + '| replace:: ' + value for name, value in {
-        'project': project,
-    }.items())
+    '.. |' + name + '| replace:: ' + value
+    for name, value in {'project': project}.items()
+)
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -147,15 +149,15 @@ latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
-
+    #
     # The font size ('10pt', '11pt' or '12pt').
     #
     # 'pointsize': '10pt',
-
+    #
     # Additional stuff for the LaTeX preamble.
     #
     # 'preamble': '',
-
+    #
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
@@ -171,7 +173,7 @@ latex_documents = [
         'python-project-template Documentation',
         'Kevin Locke \\textless{}kevin@kevinlocke.name\\textgreater{}',
         'manual',
-    ),
+    )
 ]
 
 
@@ -204,7 +206,7 @@ texinfo_documents = [
         'python-project-template',
         'One line description of project.',
         'Miscellaneous',
-    ),
+    )
 ]
 
 

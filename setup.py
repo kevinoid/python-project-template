@@ -22,12 +22,13 @@ try:
     # Simpler and more reliable than version string parsing+comparison.
     # pylint: disable=unused-import,ungrouped-imports
     import setuptools.config  # noqa: F401
+
     # pylint: enable=unused-import,ungrouped-imports
 except ImportError:
     # TODO: Use (partial) backport of setuptools.config.read_configuration?
     raise AssertionError(
-        'setup.py requires setuptools with support for setup.cfg ' +
-        '(%s < 30.3.0)' % (setuptools_version,)
+        'setup.py requires setuptools with support for setup.cfg '
+        + '(%s < 30.3.0)' % (setuptools_version,)
     )
 
 
