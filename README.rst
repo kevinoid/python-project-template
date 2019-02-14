@@ -45,6 +45,10 @@ Introductory Example
 (Mis-)Features
 ==============
 
+* All module sources are in ``src`` rather than the top-level directory.
+  I was initially against this idea, but was swayed by Ionel Cristian Mărieș'
+  `Packaging a python library`_, Hynek Schlawack's `Testing & Packaging`_, and
+  pytest `Good Integration Practices`_.
 * Minimally constrained top-level dependencies are declared in
   ``requirements*.in`` files.  Full, exact, known-good dependency versions
   are stored in ``requirements*.txt``.  These can be generated using
@@ -122,9 +126,12 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _Black: https://github.com/ambv/black
 .. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
 .. _Codecov: https://codecov.io/
+.. _Good Integration Practices: https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code
+.. _Packaging a python library: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure
 .. _Pipenv: https://pipenv.readthedocs.io/
 .. _Poetry: https://poetry.eustace.io/
 .. _Sphinx: https://www.sphinx-doc.org/
+.. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
 .. _Travis CI: https://travis-ci.org/
 .. _contributing guidelines: CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/

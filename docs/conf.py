@@ -22,7 +22,7 @@ except ImportError:
 
 # Add parent dir to path for importing __version__ from packagename below
 _project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-sys.path.insert(0, _project_path)
+sys.path.insert(0, os.path.join(_project_path, 'src'))
 
 
 _setup_cfg = ConfigParser()
