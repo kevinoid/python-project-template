@@ -8,7 +8,6 @@ https://www.sphinx-doc.org/en/master/config
 
 # Skip lint checks to preserve generated file sections and comments
 # pylint: disable=invalid-name, wrong-import-position
-# pylama:ignore=E800
 # isort:skip_file
 
 import os.path

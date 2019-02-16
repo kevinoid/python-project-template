@@ -23,7 +23,8 @@ Project Template
 
 A Python project template with pytest_, tox_, Sphinx_ (with sphinx-apidoc_ and
 sphinx-argparse_), AppVeyor_, `Travis CI`_, coveralls_, Codecov_, and several
-linters (including pylama_, Bandit_, Black_, pyroma_, and others).
+linters including flake8_ (with many plugins), Bandit_, Black_, pyroma_, and
+others.
 
 This template is the basis of my own Python projects, representing my current
 preferences.  I am not advocating for these choices nor this template
@@ -135,10 +136,10 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _Travis CI: https://travis-ci.org/
 .. _contributing guidelines: CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
+.. _flake8: https://flake8.readthedocs.io/
 .. _pip constraint files: https://pip.pypa.io/en/stable/user_guide/#constraints-files
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. _pip: https://pip.pypa.io/
-.. _pylama: https://github.com/klen/pylama
 .. _pyroma: https://github.com/regebro/pyroma
 .. _pytest: https://pytest.org/
 .. _sphinx-apidoc: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
