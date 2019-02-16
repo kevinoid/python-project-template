@@ -13,8 +13,8 @@ flake8-rst-docstrings
 # Required for `setup.py check --restructuredtext --strict`.  Otherwise:
 # warning: check: Cannot analyze code. Pygments package not found.
 pygments
-pylint
 pylint-quotes
+pylint_runner
 pyroma
 vulture
 

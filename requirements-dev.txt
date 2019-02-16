@@ -11,6 +11,7 @@ bandit==1.5.1
 black==18.9b0
 blacken-docs==0.3.0
 click==7.0                # via black
+colorama==0.4.1           # via pylint-runner
 docutils==0.14            # via pyroma, restructuredtext-lint
 entrypoints==0.3          # via flake8
 eradicate==1.0            # via flake8-eradicate
@@ -34,7 +35,8 @@ pydocstyle==3.0.0         # via flake8-docstrings
 pyflakes==2.1.0           # via flake8
 pygments==2.3.1
 pylint-quotes==0.2.1
-pylint==2.2.2
+pylint-runner==0.5.4
+pylint==2.2.2             # via pylint-quotes, pylint-runner
 pyroma==2.4
 pyyaml==3.13              # via bandit
 restructuredtext-lint==1.2.2  # via flake8-rst-docstrings

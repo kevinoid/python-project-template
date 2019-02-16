@@ -1,4 +1,5 @@
 [MASTER]
+ignore = .tox,.venv
 load-plugins =
     pylint.extensions.bad_builtin,
     pylint.extensions.check_elif,
