@@ -1,5 +1,5 @@
 [MASTER]
-ignore = .tox,.venv
+ignore = .tox,.venv,.vulture
 load-plugins =
     pylint.extensions.bad_builtin,
     pylint.extensions.check_elif,
