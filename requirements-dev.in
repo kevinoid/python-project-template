@@ -17,3 +17,8 @@ pylint
 pylint-quotes
 pyroma
 vulture
+
+# For projects using PEP 484 type hints:
+# flake8-mypy
+# pyre
+# pytype
