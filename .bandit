@@ -1,4 +1,6 @@
 [bandit]
 exclude = /.tox/,/.venv/
+# Allow assert (needed for pytest, arguably useful outside)
+skips = B101
 
 # vim: set ft=dosini :
