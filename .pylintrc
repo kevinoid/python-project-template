@@ -1,5 +1,17 @@
 [MASTER]
 ignore = .tox,.venv,.vulture
+# Add src to $PYTHONPATH so modules can be resolved during linting
+# See https://stackoverflow.com/q/1899436
+# FIXME: Can't get path to this file if specified using --rcfile option
+init-hook =
+    import os.path
+    import sys
+    from pylint.config import PYLINTRC
+    # Check that PYLINTRC is this file (instead of --rcfile) using UUID
+    if PYLINTRC and '11773e58-e61a-4366-ba2b-0b75481de6de' in open(PYLINTRC).read(): \
+        sys.path.append(os.path.join(os.path.dirname(PYLINTRC), 'src'))
+    else: \
+        sys.stderr.write('Error: init-hook unable to find .pylintrc\n')
 load-plugins =
     pylint.extensions.bad_builtin,
     pylint.extensions.check_elif,
