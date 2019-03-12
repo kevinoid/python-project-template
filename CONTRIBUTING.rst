@@ -3,8 +3,10 @@ Contributing Guidelines
 =======================
 
 Thanks for your interest in contributing to this project!  Contributions are
-welcome and very much appreciated.  To maximize the chance that your
-contribution will be accepted and minimize wasted effort, consider the
+welcome and very much appreciated.  If this is your first time contributing to a
+Free and Open Source Software project, consider reading `How to Contribute to
+Open Source`_ in the Open Source Guides.  Additionally, to maximize the chance
+that your contribution will be accepted and minimize wasted effort, consider the
 following guidelines:
 
 
@@ -43,3 +45,5 @@ avoid frustration and save a lot of time and effort.
 This is not a hard requirement.  If you'd rather start discussing a big change
 with a proposed implementation, feel free.  Be aware that the code may be
 rejected outright, or require many changes before it is acceptable.
+
+.. _How to Contribute to Open Source: https://opensource.guide/how-to-contribute/
