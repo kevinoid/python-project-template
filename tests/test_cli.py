@@ -1,6 +1,7 @@
 """packagename.cli unit tests."""
 
 import pytest
+
 from packagename import cli
 
 try:
