@@ -29,6 +29,12 @@ disable =
     # Covered by pydocstyle/flake8-docstrings which can easily ignore tests
     # See https://github.com/PyCQA/pylint/issues/618
     missing-docstring,
+    # Conflicts with isort when separately importing specific sub-modules:
+    #     import a
+    #     import b
+    #     from a import c
+    # Above is correct for isort, causes ungrouped-imports from pylint.
+    ungrouped-imports,
 
 [FORMAT]
 max-line-length = 80
