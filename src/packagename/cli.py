@@ -18,11 +18,11 @@ _VERSION_MESSAGE = (
 
 Copyright 2019 Kevin Locke <kevin@kevinlocke.name>
 
-packagename is free software; you can redistribute it and/or modify
+%(prog)s is free software; you can redistribute it and/or modify
 it under the terms of the CC0 1.0 Universal (CC0 1.0) Public Domain
 Dedication published by Creative Commons.
 
-packagename is distributed in the hope that it will be useful,
+%(prog)s is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 CC0 1.0 Universal (CC0 1.0) Public Domain Dedication for more details.'''
