@@ -10,6 +10,6 @@ include *requirements*.in
 
 # Include documentation and tests in source package
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
-recursive-include docs
-recursive-include tests
+recursive-include docs *.py *.rst
+recursive-include tests *.py
 include tox.ini
