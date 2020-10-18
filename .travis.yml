@@ -9,26 +9,26 @@ matrix:
   # Fail build immediately if any job fails
   fast_finish: true
   include:
-    - python: 2.7
-      env: TOXENV=py27
-    - python: 3.4
-      env: TOXENV=py34
-    - python: 3.9
-      env: TOXENV=docs,lint,py39
-    - python: pypy
-      env: TOXENV=pypy27
-    - python: pypy3.5
-      env: TOXENV=pypy35
+  - python: 2.7
+    env: TOXENV=py27
+  - python: 3.4
+    env: TOXENV=py34
+  - python: 3.9
+    env: TOXENV=docs,lint,py39
+  - python: pypy
+    env: TOXENV=pypy27
+  - python: pypy3.5
+    env: TOXENV=pypy35
 
 install:
-  - pip install codecov coveralls tox
+- pip install codecov coveralls tox
 
 script:
-  - tox
+- tox
 
 # Note:  Both codecov and coveralls detect branch/PR info from Travis CI
 # https://github.com/codecov/codecov-node/blob/v1.0.1/lib/services/travis.js
 # https://github.com/nickmerwin/node-coveralls/blob/2.11.5/lib/getOptions.js#L18
 after_success:
-  - codecov
-  - coveralls
+- codecov
+- coveralls

@@ -8,21 +8,21 @@
 # https://www.appveyor.com/docs/windows-images-software/#python
 environment:
   matrix:
-    - PYTHON: "C:\\Python27"
-      TOXENV: py27
-    - PYTHON: "C:\\Python34"
-      TOXENV: py34
-    # Note: Python 3.9 not supported yet.
-    # See https://github.com/appveyor/ci/issues/3541
-    - PYTHON: "C:\\Python38"
-      # Uncomment to check docs and lint using Python 3.8
-      # Commented since already checked using Travis CI
-      # TOXENV: "docs,lint,py38"
-      TOXENV: py38
-    - python: pypy
-      env: TOXENV=pypy27
-    - python: pypy3.5
-      env: TOXENV=pypy35
+  - PYTHON: "C:\\Python27"
+    TOXENV: py27
+  - PYTHON: "C:\\Python34"
+    TOXENV: py34
+  # Note: Python 3.9 not supported yet.
+  # See https://github.com/appveyor/ci/issues/3541
+  - PYTHON: "C:\\Python38"
+    # Uncomment to check docs and lint using Python 3.8
+    # Commented since already checked using Travis CI
+    # TOXENV: "docs,lint,py38"
+    TOXENV: py38
+  - python: pypy
+    env: TOXENV=pypy27
+  - python: pypy3.5
+    env: TOXENV=pypy35
 
 # If the package has arch-dependent features, uncomment this and add -x64
 # versions to matrix above (and possibly excluding non-x64 on x86 platform).
@@ -31,21 +31,21 @@ environment:
 #  - x64
 
 install:
-  - '"%PYTHON%\\python.exe" -m pip install tox wheel'
+- '"%PYTHON%\\python.exe" -m pip install tox wheel'
 
 # Disable build step, which we don't need
 build: off
 
 test_script:
-  - tox
+- tox
 
 after_test:
-  # build wheels
-  - 'build.cmd "%PYTHON%\\python.exe" setup.py bdist_wheel'
+# build wheels
+- 'build.cmd "%PYTHON%\\python.exe" setup.py bdist_wheel'
 
 artifacts:
-  # save wheels as build artifacts
-  - path: dist\*
+# save wheels as build artifacts
+- path: dist\*
 
 # If any job fails, fail build immediately to avoid wasting time/resources.
 matrix:
