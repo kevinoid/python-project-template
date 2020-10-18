@@ -25,7 +25,9 @@ skip-string-normalization = true
 
 [tool.isort]
 known_first_party = "packagename"
-# For compatibility with black (from black README.md)
+# For compatibility with black (from black README.md) and
+# https://pycqa.github.io/isort/docs/configuration/profiles/#black
+ensure_newline_before_comments = true
 force_grid_wrap = 0
 include_trailing_comma = true
 line_length = 80
