@@ -25,9 +25,6 @@ skip-string-normalization = true
 
 [tool.isort]
 known_first_party = "packagename"
-# __init__.py is ignored by default.  Un-ignore it.
-# See https://github.com/timothycrosley/isort/issues/690
-not_skip = __init__.py
 # For compatibility with black (from black README.md)
 force_grid_wrap = 0
 include_trailing_comma = true
