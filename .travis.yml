@@ -16,9 +16,9 @@ matrix:
   - python: 3.9
     env: TOXENV=docs,lint,py39
   - python: pypy
-    env: TOXENV=pypy27
-  - python: pypy3.5
-    env: TOXENV=pypy35
+    env: TOXENV=pypy
+  - python: pypy3
+    env: TOXENV=pypy3
 
 install:
 - pip install codecov coveralls tox
