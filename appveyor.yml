@@ -34,7 +34,7 @@ install:
 - '"%PYTHON%\\python.exe" -m pip install tox wheel'
 
 # Disable build step, which we don't need
-build: off
+build: "off"
 
 test_script:
 - tox
