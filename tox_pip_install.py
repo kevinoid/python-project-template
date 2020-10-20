@@ -15,7 +15,8 @@ import sys
 # argument, install options+packages as subsequent options.
 if len(sys.argv) < 3 or not sys.argv[1].startswith('pip'):
     sys.stderr.write(
-        'Usage: ' + sys.argv[0] + ' <pip version> [options] <packages...>\n')
+        'Usage: ' + sys.argv[0] + ' <pip version> [options] <packages...>\n'
+    )
     sys.exit(1)
 
 # Workaround is only needed on Debian (and derivatives)
@@ -28,10 +29,11 @@ if os.path.exists('/etc/debian_version'):
         'pip',
         'install',
         '--force',
-        sys.argv[1])
+        sys.argv[1],
+    )
     if pip_exit_code != 0:
         sys.exit(pip_exit_code)
 
 os.execv(
-    sys.executable,
-    [sys.executable, '-m', 'pip', 'install'] + sys.argv[2:])
+    sys.executable, [sys.executable, '-m', 'pip', 'install'] + sys.argv[2:]
+)
