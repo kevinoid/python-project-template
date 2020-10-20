@@ -21,19 +21,19 @@ before_script:
 test:primary:
   stage: test:primary
   image: python:alpine
-  script: python3 -m tox -e lint,docs,py3
+  script: python3 -m tox -vv -e lint,docs,py3
 
 # Test with earliest/latest supported version of Python 2
 test:py27:
   stage: test:secondary
   image: python:2.7-alpine
-  script: python -m tox -e py27
+  script: python -m tox -vv -e py27
 
 # Test with earliest supported version of Python 3
 test:py34:
   stage: test:secondary
   image: python:3.4-alpine
-  script: python3 -m tox -e py34
+  script: python3 -m tox -vv -e py34
 
 # Test with earliest supported version of PyPy 2
 test:pypy:
@@ -42,7 +42,7 @@ test:pypy:
   before_script:
   - pypy --version
   - pypy -m pip install tox
-  script: pypy -m tox -e pypy
+  script: pypy -m tox -vv -e pypy
 
 # Test with latest supported version of PyPy 3
 test:pypy3:
@@ -51,4 +51,4 @@ test:pypy3:
   before_script:
   - pypy3 --version
   - pypy3 -m pip install tox
-  script: pypy3 -m tox -e pypy3
+  script: pypy3 -m tox -vv -e pypy3
