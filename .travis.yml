@@ -5,7 +5,7 @@ language: python
 
 # Test tox env matching Travis Python version
 # https://stackoverflow.com/a/46103989
-matrix:
+jobs:
   # Fail build immediately if any job fails
   fast_finish: true
   include:
