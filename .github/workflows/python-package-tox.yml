@@ -59,8 +59,8 @@ jobs:
         - version: pypy3
           exe: pypy3
           toxenv: pypy3
-        # Exclude os/version already run in test-primary
         exclude:
+        # Exclude os/version already run in test-primary
         - os: ubuntu-latest
           python:
             version: 3.x
