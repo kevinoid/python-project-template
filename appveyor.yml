@@ -62,7 +62,7 @@ install:
 build: "off"
 
 test_script:
-- tox
+- tox -vv
 
 after_test:
 # build wheels

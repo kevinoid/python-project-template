@@ -24,7 +24,7 @@ install:
 - pip install codecov coveralls tox
 
 script:
-- tox
+- tox -vv
 
 # Note:  Both codecov and coveralls detect branch/PR info from Travis CI
 # https://github.com/codecov/codecov-node/blob/v1.0.1/lib/services/travis.js
