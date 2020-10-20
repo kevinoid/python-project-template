@@ -10,8 +10,8 @@ environment:
   matrix:
   - PYTHON: "C:\\Python27\\python.exe"
     TOXENV: py27
-  - PYTHON: "C:\\Python34\\python.exe"
-    TOXENV: py34
+  - PYTHON: "C:\\Python35\\python.exe"
+    TOXENV: py35
   # Note: Python 3.9 not supported yet.
   # See https://github.com/appveyor/ci/issues/3541
   - PYTHON: "C:\\Python38\\python.exe"

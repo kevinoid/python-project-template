@@ -53,9 +53,9 @@ jobs:
         - version: 2.7
           exe: python
           toxenv: py27
-        - version: 3.4
+        - version: 3.5
           exe: python3
-          toxenv: py34
+          toxenv: py35
         - version: 3.x
           exe: python3
           toxenv: py3
@@ -73,19 +73,6 @@ jobs:
             version: 3.x
             exe: python3
             toxenv: py3
-        # Exclude Python 3.4, which isn't available for Windows
-        - arch: x64
-          os: windows-latest
-          python:
-            version: 3.4
-            exe: python3
-            toxenv: py34
-        - arch: x86
-          os: windows-latest
-          python:
-            version: 3.4
-            exe: python3
-            toxenv: py34
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python.version }}

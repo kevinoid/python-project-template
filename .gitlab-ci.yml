@@ -30,10 +30,10 @@ test:py27:
   script: python -m tox -vv -e py27
 
 # Test with earliest supported version of Python 3
-test:py34:
+test:py35:
   stage: test:secondary
-  image: python:3.4-alpine
-  script: python3 -m tox -vv -e py34
+  image: python:3.5-alpine
+  script: python3 -m tox -vv -e py35
 
 # Test with earliest supported version of PyPy 2
 test:pypy:

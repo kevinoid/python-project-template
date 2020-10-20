@@ -11,8 +11,8 @@ jobs:
   include:
   - python: 2.7
     env: TOXENV=py27
-  - python: 3.4
-    env: TOXENV=py34
+  - python: 3.5
+    env: TOXENV=py35
   # Travis CI doesn't support 3.9 yet:
   # https://travis-ci.community/t/10091/3
   - python: 3.8
