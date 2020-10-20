@@ -19,8 +19,14 @@ environment:
     # Commented since already checked using Travis CI
     # TOXENV: "docs,lint,py38"
     TOXENV: py38
-  - TOXENV: pypy
-  - TOXENV: pypy3
+  - PYTHON: pypy.exe
+    PYURL: https://downloads.python.org/pypy/pypy2.7-v7.3.2-win32.zip
+    PYSHA256: 0fd62265e0421a02432f10a294a712a5e784a8e061375e6d8ea5fd619be1be62
+    TOXENV: pypy
+  - PYTHON: pypy3.exe
+    PYURL: https://downloads.python.org/pypy/pypy3.7-v7.3.2-win32.zip
+    PYSHA256: e3c589be07760bc3042981c379b7fd1603e832a4db426075f09e090473846a96
+    TOXENV: pypy3
 
 # If the package has arch-dependent features, uncomment this and add -x64
 # versions to matrix above (and possibly excluding non-x64 on x86 platform).
@@ -29,6 +35,27 @@ environment:
 #  - x64
 
 install:
+# Install PyPy if necessary.
+# https://www.appveyor.com/docs/lang/python/#testing-against-pypy
+# https://stackoverflow.com/a/30835387
+- ps: |
+    $ErrorActionPreference = 'Stop'
+    if ($env:PYURL) {
+        $pyUri = [Uri]$env:PYURL
+        $pyFile = [IO.Path]::GetFileName($pyUri.LocalPath)
+        $pyPath = Join-Path (Get-Location) $pyFile
+        (New-Object Net.WebClient).DownloadFile($pyUri, $pyPath)
+
+        $sha256Bytes = [Security.Cryptography.SHA256]::Create().ComputeHash(
+            [IO.File]::OpenRead($pyPath))
+        $sha256 = [BitConverter]::ToString($sha255Bytes).Replace('-', '')
+        if ($sha256 -ne $env:PYSHA256) {
+            Write-Error "$pyPath hash mismatch ($sha256 != $env:PYSHA256)"
+        }
+
+        7z x -bso0 -bsp0 $pyPath
+        $env:PYTHON = Join-Path ($pyPath -replace '\.zip$','') $env:PYTHON
+    }
 - '"%PYTHON%" -m pip install tox wheel'
 
 # Disable build step, which we don't need
