@@ -28,7 +28,7 @@ try:
     from setuptools import setup
 except ImportError:
     # TODO: Use (partial) backport of setuptools.config.read_configuration?
-    raise AssertionError(
+    raise AssertionError(  # pylint: disable=raise-missing-from
         'setup.py requires setuptools with support for setup.cfg '
         + '(%s < 30.3.0)' % (setuptools_version,)
     )
