@@ -13,7 +13,7 @@ import sys
 
 # Must be invoked with pip package (optionally version-constrained) as first
 # argument, install options+packages as subsequent options.
-if len(sys.argv) < 3 or not sys.argv[1].startswith("pip"):
+if len(sys.argv) < 3 or not sys.argv[1].startswith('pip'):
     sys.stderr.write(
         'Usage: ' + sys.argv[0] + ' <pip version> [options] <packages...>\n')
     sys.exit(1)
