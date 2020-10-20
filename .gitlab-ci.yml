@@ -1,0 +1,54 @@
+# Gitlab CI/CD Configuration
+# https://docs.gitlab.com/ee/ci/yaml/
+
+stages:
+# Primary test stage runs linting, docs, tests on single platform
+- test:primary
+# Secondary test stage runs tests on other supported platforms
+# Only run if primary passes, to avoid wasting cycles
+- test:secondary
+
+before_script:
+- python --version
+- python -m pip install tox
+
+# Note: Using Docker Official Images for Python and PyPy:
+# https://hub.docker.com/_/python
+# https://hub.docker.com/_/pypy
+# Preferring Alpine images for minimalism.
+
+# Lint, Docs, Test on latest supported release of Python
+test:primary:
+  stage: test:primary
+  image: python:alpine
+  script: tox -e lint,docs,py3
+
+# Test with earliest/latest supported version of Python 2
+test:py27:
+  stage: test:secondary
+  image: python:2.7-alpine
+  script: tox -e py27
+
+# Test with earliest supported version of Python 3
+test:py34:
+  stage: test:secondary
+  image: python:3.4-alpine
+  script: tox -e py34
+
+# Test with earliest supported version of PyPy 2
+test:pypy:
+  stage: test:secondary
+  image: pypy:2.7-slim
+  before_script:
+  - pypy --version
+  - pypy -m pip install tox
+  script: pypy -m tox -e pypy
+
+# Test with latest supported version of PyPy 3
+test:pypy3:
+  stage: test:secondary
+  image: pypy:slim
+  before_script:
+  - pypy3 --version
+  - pypy3 -m pip install tox
+  script: pypy3 -m tox -e pypy3
