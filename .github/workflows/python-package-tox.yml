@@ -1,0 +1,80 @@
+# GitHub Actions Workflow configuration
+# https://docs.github.com/actions/reference/workflow-syntax-for-github-actions
+# https://docs.github.com/actions/guides/building-and-testing-python
+
+name: Python package with Tox
+
+# Note: on key treated as boolean key by YAML
+# https://github.com/adrienverge/yamllint/issues/158#issuecomment-454313233
+# However, GitHub Actions documentation is consistent in using it unquoted.
+on:   # yamllint disable-line rule:truthy
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  test-primary:
+    name: Lint, Docs, Test on Python 3
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Display Python version
+      run: python --version
+    - name: Install tox
+      run: python -m pip install tox
+    - name: Run tox
+      run: python -m tox -e lint,docs,py3
+
+  test-secondary:
+    # Only test secondary platforms if primary test platform passed
+    needs:
+    - test-primary
+    name: Test on Python ${{ matrix.python.version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+        # Uncomment if package needs testing on macOS:
+        # - macos-latest
+        - ubuntu-latest
+        - windows-latest
+        python:
+        - version: 2.7
+          exe: python
+          toxenv: py27
+        - version: 3.4
+          exe: python3
+          toxenv: py34
+        - version: 3.x
+          exe: python3
+          toxenv: py3
+        - version: pypy2
+          exe: pypy
+          toxenv: pypy
+        - version: pypy3
+          exe: pypy3
+          toxenv: pypy3
+        # Exclude os/version already run in test-primary
+        exclude:
+        - os: ubuntu-latest
+          python:
+            version: 3.x
+            exe: python3
+            toxenv: py3
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python.version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python.version }}
+    - name: Display Python version
+      run: python --version
+    - name: Install tox
+      run: ${{ matrix.python.exe }} -m pip install tox
+    - name: Run tox
+      run: ${{ matrix.python.exe }} -m tox -e ${{ matrix.python.toxenv }}

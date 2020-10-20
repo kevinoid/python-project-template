@@ -22,9 +22,9 @@ Project Template
    :target: https://pypi.org/project/python-project-template/
 
 A Python project template with pytest_, tox_, Sphinx_ (with sphinx-apidoc_ and
-sphinx-argparse_), AppVeyor_, `GitLab CI`_, `Travis CI`_, coveralls_,
-Codecov_, and several linters including flake8_ (with many plugins), Bandit_,
-Black_, pyroma_, and others.
+sphinx-argparse_), AppVeyor_, `GitHub Actions`_, `GitLab CI`_, `Travis CI`_,
+coveralls_, Codecov_, and several linters including flake8_ (with many
+plugins), Bandit_, Black_, pyroma_, and others.
 
 This template is the basis of my own Python projects, representing my current
 preferences.  I am not advocating for these choices nor this template
@@ -127,6 +127,7 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _Black: https://github.com/ambv/black
 .. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
 .. _Codecov: https://codecov.io/
+.. _GitHub Actions: https://docs.github.com/actions
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 .. _Good Integration Practices: https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code
 .. _Packaging a python library: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure
