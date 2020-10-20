@@ -34,10 +34,16 @@ jobs:
     # Only test secondary platforms if primary test platform passed
     needs:
     - test-primary
-    name: Test on Python ${{ matrix.python.version }} on ${{ matrix.os }}
+    name: >-
+      Test on Python ${{ matrix.python.version }} ${{ matrix.arch }}
+      on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        arch:
+        # Uncomment if package needs testing on different architectures
+        # - x86
+        - x64
         os:
         # Uncomment if package needs testing on macOS:
         # - macos-latest
@@ -61,13 +67,21 @@ jobs:
           toxenv: pypy3
         exclude:
         # Exclude os/version already run in test-primary
-        - os: ubuntu-latest
+        - arch: x64
+          os: ubuntu-latest
           python:
             version: 3.x
             exe: python3
             toxenv: py3
         # Exclude Python 3.4, which isn't available for Windows
-        - os: windows-latest
+        - arch: x64
+          os: windows-latest
+          python:
+            version: 3.4
+            exe: python3
+            toxenv: py34
+        - arch: x86
+          os: windows-latest
           python:
             version: 3.4
             exe: python3
@@ -78,6 +92,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python.version }}
+        architecture: ${{ matrix.arch }}
     - name: Display Python version
       run: python --version
     - name: Install tox
