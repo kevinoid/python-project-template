@@ -8,13 +8,13 @@
 # https://www.appveyor.com/docs/windows-images-software/#python
 environment:
   matrix:
-  - PYTHON: "C:\\Python27"
+  - PYTHON: "C:\\Python27\\python.exe"
     TOXENV: py27
-  - PYTHON: "C:\\Python34"
+  - PYTHON: "C:\\Python34\\python.exe"
     TOXENV: py34
   # Note: Python 3.9 not supported yet.
   # See https://github.com/appveyor/ci/issues/3541
-  - PYTHON: "C:\\Python38"
+  - PYTHON: "C:\\Python38\\python.exe"
     # Uncomment to check docs and lint using Python 3.8
     # Commented since already checked using Travis CI
     # TOXENV: "docs,lint,py38"
@@ -29,7 +29,7 @@ environment:
 #  - x64
 
 install:
-- '"%PYTHON%\\python.exe" -m pip install tox wheel'
+- '"%PYTHON%" -m pip install tox wheel'
 
 # Disable build step, which we don't need
 build: "off"
@@ -39,7 +39,7 @@ test_script:
 
 after_test:
 # build wheels
-- 'build.cmd "%PYTHON%\\python.exe" setup.py bdist_wheel'
+- 'build.cmd "%PYTHON%" setup.py bdist_wheel'
 
 artifacts:
 # save wheels as build artifacts
