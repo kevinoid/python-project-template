@@ -66,7 +66,9 @@ test_script:
 
 after_test:
 # build wheels
-- 'build.cmd "%PYTHON%" setup.py bdist_wheel'
+# Note: If building 64-bit C extensions on Python 3.3 or 3.4 see build.cmd from
+# https://packaging.python.org/guides/supporting-windows-using-appveyor/#support-scripts
+- '"%PYTHON%" setup.py bdist_wheel'
 
 artifacts:
 # save wheels as build artifacts
