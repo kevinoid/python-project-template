@@ -15,15 +15,17 @@ import sys
 
 setuptools_version = None
 try:
-    from setuptools import setup, __version__ as setuptools_version
-    from pkg_resources import parse_requirements
+    # isort: off
+    from setuptools import __version__ as setuptools_version
+
+    # isort: on
 
     # setup.cfg is supported if and only if setuptools.config can be imported.
     # Simpler and more reliable than version string parsing+comparison.
-    # pylint: disable=unused-import,ungrouped-imports
-    import setuptools.config  # noqa: F401
+    import setuptools.config  # noqa: F401 pylint: disable=unused-import
 
-    # pylint: enable=unused-import,ungrouped-imports
+    from pkg_resources import parse_requirements
+    from setuptools import setup
 except ImportError:
     # TODO: Use (partial) backport of setuptools.config.read_configuration?
     raise AssertionError(
