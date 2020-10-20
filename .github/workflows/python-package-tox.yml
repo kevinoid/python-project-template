@@ -66,6 +66,12 @@ jobs:
             version: 3.x
             exe: python3
             toxenv: py3
+        # Exclude Python 3.4, which isn't available for Windows
+        - os: windows-latest
+          python:
+            version: 3.4
+            exe: python3
+            toxenv: py34
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python.version }}
