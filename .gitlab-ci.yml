@@ -21,19 +21,19 @@ before_script:
 test:primary:
   stage: test:primary
   image: python:alpine
-  script: tox -e lint,docs,py3
+  script: python3 -m tox -e lint,docs,py3
 
 # Test with earliest/latest supported version of Python 2
 test:py27:
   stage: test:secondary
   image: python:2.7-alpine
-  script: tox -e py27
+  script: python -m tox -e py27
 
 # Test with earliest supported version of Python 3
 test:py34:
   stage: test:secondary
   image: python:3.4-alpine
-  script: tox -e py34
+  script: python3 -m tox -e py34
 
 # Test with earliest supported version of PyPy 2
 test:pypy:

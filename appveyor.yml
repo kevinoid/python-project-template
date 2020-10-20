@@ -62,7 +62,7 @@ install:
 build: "off"
 
 test_script:
-- tox -vv
+- '"%PYTHON%" -m tox -vv'
 
 after_test:
 # build wheels
