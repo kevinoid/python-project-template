@@ -23,7 +23,7 @@ jobs:
     env: TOXENV=pypy3
 
 install:
-- pip install codecov coveralls tox
+- pip install --upgrade codecov coveralls setuptools tox wheel
 
 script:
 - tox -vv

@@ -10,7 +10,7 @@ stages:
 
 before_script:
 - python --version
-- python -m pip install tox
+- python -m pip install --upgrade setuptools tox wheel
 
 # Note: Using Docker Official Images for Python and PyPy:
 # https://hub.docker.com/_/python
@@ -41,7 +41,7 @@ test:pypy:
   image: pypy:2.7-slim
   before_script:
   - pypy --version
-  - pypy -m pip install tox
+  - pypy -m pip install --upgrade setuptools tox wheel
   script: pypy -m tox -vv -e pypy
 
 # Test with latest supported version of PyPy 3
@@ -50,5 +50,5 @@ test:pypy3:
   image: pypy:slim
   before_script:
   - pypy3 --version
-  - pypy3 -m pip install tox
+  - pypy3 -m pip install --upgrade setuptools tox wheel
   script: pypy3 -m tox -vv -e pypy3
