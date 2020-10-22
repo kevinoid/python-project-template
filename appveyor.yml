@@ -43,7 +43,9 @@ install:
     if ($env:PYURL) {
         $pyUri = [Uri]$env:PYURL
         $pyFile = [IO.Path]::GetFileName($pyUri.LocalPath)
-        $pyPath = Join-Path (Get-Location) $pyFile
+        # Unpack outside project dir to avoid lint/test finding pypy files
+        $pyParentDir = Resolve-Path '..'
+        $pyPath = Join-Path $pyParentDir $pyFile
         (New-Object Net.WebClient).DownloadFile($pyUri, $pyPath)
 
         $sha256Bytes = [Security.Cryptography.SHA256]::Create().ComputeHash(
@@ -53,7 +55,7 @@ install:
             Write-Error "$pyPath hash mismatch ($sha256 != $env:PYSHA256)"
         }
 
-        7z x -bso0 -bsp0 $pyPath
+        7z x -bso0 -bsp0 ('-o' + $pyParentDir) $pyPath
         $env:PYTHON = Join-Path ($pyPath -replace '\.zip$','') $env:PYTHON
     }
 - '"%PYTHON%" -m ensurepip'
