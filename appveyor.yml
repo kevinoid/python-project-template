@@ -56,6 +56,7 @@ install:
         7z x -bso0 -bsp0 $pyPath
         $env:PYTHON = Join-Path ($pyPath -replace '\.zip$','') $env:PYTHON
     }
+- '"%PYTHON%" -m ensurepip'
 - '"%PYTHON%" -m pip install --upgrade setuptools tox wheel'
 
 # Disable build step, which we don't need
