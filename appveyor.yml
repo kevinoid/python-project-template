@@ -24,8 +24,9 @@ environment:
     PYSHA256: 0fd62265e0421a02432f10a294a712a5e784a8e061375e6d8ea5fd619be1be62
     TOXENV: pypy
   - PYTHON: pypy3.exe
-    PYURL: https://downloads.python.org/pypy/pypy3.7-v7.3.2-win32.zip
-    PYSHA256: e3c589be07760bc3042981c379b7fd1603e832a4db426075f09e090473846a96
+    # Note: Using v7.3.1 due to https://github.com/tox-dev/tox/issues/1704
+    PYURL: https://downloads.python.org/pypy/pypy3.6-v7.3.1-win32.zip
+    PYSHA256: 752fbe8c4abee6468e5ce22af82818f821daded36faa65f3d69423f9c217007a
     TOXENV: pypy3
 
 # If the package has arch-dependent features, uncomment this and add -x64
