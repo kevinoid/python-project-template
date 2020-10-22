@@ -23,7 +23,11 @@ jobs:
     env: TOXENV=pypy3
 
 install:
-- pip install --upgrade codecov coveralls setuptools tox wheel
+# Pre-installed setuptools 44.1.1 causes tox .package get-build-requires
+# error: 'egg_base' must be a directory name (got `src`)
+# Possibly related to https://github.com/pypa/setuptools/issues/1136
+- pip install --upgrade --force setuptools
+- pip install --upgrade codecov coveralls tox wheel
 
 script:
 - tox -vv
