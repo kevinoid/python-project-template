@@ -34,3 +34,13 @@ line_length = 80
 lines_between_types = 1
 multi_line_output = 3
 use_parentheses = true
+
+[tool.pytest.ini_options]
+# https://docs.pytest.org/en/stable/warnings.html
+# Note: last matches first (opposite of python -W)
+filterwarnings = [
+    # Print all warnings
+    "always",
+    # Treat warnings caused by this module (or submodules) as errors
+    'error:::packagename(\.|$)',
+]
