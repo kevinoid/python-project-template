@@ -37,6 +37,7 @@ use_parentheses = true
 
 [tool.pytest.ini_options]
 addopts = [
+    "--strict-config",
     "--strict-markers",
 ]
 # https://docs.pytest.org/en/stable/warnings.html
