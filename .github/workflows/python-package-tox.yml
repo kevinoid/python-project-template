@@ -76,16 +76,6 @@ jobs:
             version: 3.x
             exe: python
             toxenv: py3
-        # Exclude pypy3 on Windows due to
-        # https://github.com/tox-dev/tox/issues/1704
-        # and inability to use pypy3.6-v7.3.1 due to
-        # https://github.com/actions/setup-python/issues/136
-        - arch: x64
-          os: windows-latest
-          python:
-            version: pypy3
-            exe: pypy3
-            toxenv: pypy3
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python.version }}
