@@ -19,7 +19,7 @@ Project Template
    :target: https://pypi.org/project/python-project-template/
 
 A Python project template with pytest_, tox_, Sphinx_ (with sphinx-apidoc_ and
-sphinx-argparse_), AppVeyor_, `GitHub Actions`_, `GitLab CI`_, `Travis CI`_,
+sphinx-argparse_), `GitHub Actions`_, `GitLab CI`_, `Travis CI`_,
 coveralls_, Codecov_, and several linters including flake8_ (with many
 plugins), Bandit_, Black_, pyroma_, and others.
 
@@ -119,7 +119,6 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. === Begin reference names ===
 
 .. _API documentation: https://kevinoid.github.io/python-project-template/api
-.. _AppVeyor: https://appveyor.com/
 .. _Bandit: https://github.com/PyCQA/bandit
 .. _Black: https://github.com/ambv/black
 .. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
