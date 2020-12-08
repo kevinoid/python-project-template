@@ -1,5 +1,5 @@
 # Abstract top-level development dependencies (e.g. linters and other tools)
-bandit
+bandit!=1.6.3
 black; python_version >= '3.6'
 blacken-docs; python_version >= '3.6'
 flake8
