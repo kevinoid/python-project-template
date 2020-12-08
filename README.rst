@@ -2,12 +2,9 @@
 Project Template
 ================
 
-.. image:: https://img.shields.io/travis/kevinoid/python-project-template/master.svg?style=flat&label=build+on+linux
-   :alt: Build Status: Linux
-   :target: https://travis-ci.org/kevinoid/python-project-template
-.. image:: https://img.shields.io/appveyor/ci/kevinoid/python-project-template/master.svg?style=flat&label=build+on+windows
-   :alt: Build Status: Windows
-   :target: https://ci.appveyor.com/project/kevinoid/python-project-template
+.. image:: https://img.shields.io/github/workflow/status/kevinoid/python-project-template/Tox/master.svg?style=flat&label=build
+   :alt: Build Status
+   :target: https://github.com/kevinoid/python-project-template/actions?query=branch%3Amaster
 .. image:: https://img.shields.io/codecov/c/github/kevinoid/python-project-template.svg?style=flat
    :alt: Coverage
    :target: https://codecov.io/github/kevinoid/python-project-template?branch=master
