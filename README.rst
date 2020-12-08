@@ -51,15 +51,15 @@ Introductory Example
   `Packaging a python library`_, Hynek Schlawack's `Testing & Packaging`_, and
   pytest `Good Integration Practices`_.
 * Minimally constrained top-level dependencies are declared in
-  ``requirements*.in`` files.  Full, exact, known-good dependency versions
-  are stored in ``requirements*.txt``.  These can be generated using
-  ``pip-compile`` from pip-tools_ or ``pip install && pip freeze`` in a fresh
-  virtual environment:
+  ``requirements/*.in`` files.  Full, exact, hash-checked_, known-good
+  dependency versions are stored in ``requirements/*.txt``.  These can be
+  generated using ``pip-compile`` from pip-tools_ or (if hashes are not
+  required) ``pip install && pip freeze`` in a fresh virtual environment:
 
   .. code:: sh
 
-      for requirements in requirements*.in ; do
-          pip-compile "$requirements"
+      for requirements in requirements/*.in; do
+          pip-compile --generate-hashes "$requirements"
       done
 
   This system has the benefit of allowing easy installation of fully or
@@ -139,6 +139,7 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _contributing guidelines: CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
 .. _flake8: https://flake8.readthedocs.io/
+.. _hash-checked: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
 .. _pip constraint files: https://pip.pypa.io/en/stable/user_guide/#constraints-files
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. _pip: https://pip.pypa.io/

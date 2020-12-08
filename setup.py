@@ -60,7 +60,7 @@ if {'pytest', 'test', 'ptr'}.intersection(sys.argv):
     setup_requires.append('pytest-runner')
 
 setup(
-    install_requires=_load_requirements('requirements.in'),
+    install_requires=_load_requirements('requirements/install.in'),
     setup_requires=setup_requires,
-    tests_require=_load_requirements('requirements-test.in'),
+    tests_require=_load_requirements('requirements/test.in'),
 )

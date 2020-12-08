@@ -6,7 +6,7 @@ include README.rst
 
 # Minimally-constrained requirements files are used by setup.py,
 # so must be included.  See https://stackoverflow.com/a/38533721
-include *requirements*.in
+include requirements/*.in
 
 # Include documentation and tests in source package
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
