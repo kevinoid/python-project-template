@@ -2,7 +2,7 @@
 # https://docs.github.com/actions/reference/workflow-syntax-for-github-actions
 # https://docs.github.com/actions/guides/building-and-testing-python
 
-name: Python package with Tox
+name: Tox
 
 # Note: on key treated as boolean key by YAML
 # https://github.com/adrienverge/yamllint/issues/158#issuecomment-454313233
