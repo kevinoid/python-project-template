@@ -19,9 +19,9 @@ Project Template
    :target: https://pypi.org/project/python-project-template/
 
 A Python project template with pytest_, tox_, Sphinx_ (with sphinx-apidoc_ and
-sphinx-argparse_), `GitHub Actions`_, `GitLab CI`_, `Travis CI`_,
-coveralls_, Codecov_, and several linters including flake8_ (with many
-plugins), Bandit_, Black_, pyroma_, and others.
+sphinx-argparse_), `GitHub Actions`_, `GitLab CI`_, coveralls_, Codecov_, and
+several linters including flake8_ (with many plugins), Bandit_, Black_,
+pyroma_, and others.
 
 This template is the basis of my own Python projects, representing my current
 preferences.  I am not advocating for these choices nor this template
@@ -131,7 +131,6 @@ This template is available under the terms of `CC0 1.0 Universal`_.
 .. _Poetry: https://poetry.eustace.io/
 .. _Sphinx: https://www.sphinx-doc.org/
 .. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
-.. _Travis CI: https://travis-ci.org/
 .. _contributing guidelines: CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
 .. _flake8: https://flake8.readthedocs.io/
