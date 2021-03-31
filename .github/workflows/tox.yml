@@ -67,10 +67,10 @@ jobs:
         - version: 3.x
           exe: python
           toxenv: py3
-        - version: pypy2
+        - version: pypy-2.7
           exe: pypy
           toxenv: pypy
-        - version: pypy3
+        - version: pypy-3.7
           exe: pypy3
           toxenv: pypy3
         exclude:
