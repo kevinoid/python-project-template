@@ -2,12 +2,12 @@
 Project Template
 ================
 
-.. image:: https://img.shields.io/github/workflow/status/kevinoid/python-project-template/Tox/master.svg?style=flat&label=build
+.. image:: https://img.shields.io/github/workflow/status/kevinoid/python-project-template/Tox/main.svg?style=flat&label=build
    :alt: Build Status
-   :target: https://github.com/kevinoid/python-project-template/actions?query=branch%3Amaster
+   :target: https://github.com/kevinoid/python-project-template/actions?query=branch%3Amain
 .. image:: https://img.shields.io/codecov/c/github/kevinoid/python-project-template.svg?style=flat
    :alt: Coverage
-   :target: https://codecov.io/github/kevinoid/python-project-template?branch=master
+   :target: https://codecov.io/github/kevinoid/python-project-template?branch=main
 .. image:: https://img.shields.io/david/kevinoid/python-project-template.svg?style=flat
    :alt: Dependency Status
    :target: https://david-dm.org/kevinoid/python-project-template

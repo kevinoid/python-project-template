@@ -12,7 +12,7 @@ Documentation Contents
    api/modules
    contributing
    Issue Tracker <https://github.com/kevinoid/python-project-template/issues>
-   License <https://github.com/kevinoid/python-project-template/raw/master/LICENSE.txt>
+   License <https://github.com/kevinoid/python-project-template/raw/main/LICENSE.txt>
 
 
 Indices and Tables
