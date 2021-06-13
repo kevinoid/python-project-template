@@ -9,6 +9,7 @@ Workaround for https://bugs.debian.org/962654
 """
 
 import os
+import subprocess
 import sys
 
 # Must be invoked with pip package (optionally version-constrained) as first
@@ -21,19 +22,23 @@ if len(sys.argv) < 3 or not sys.argv[1].startswith('pip'):
 
 # Workaround is only needed on Debian (and derivatives)
 if os.path.exists('/etc/debian_version'):
-    pip_exit_code = os.spawnl(
-        os.P_WAIT,
-        sys.executable,
+    pip_result = subprocess.run([
         sys.executable,
         '-m',
         'pip',
         'install',
         '--force',
         sys.argv[1],
-    )
-    if pip_exit_code != 0:
-        sys.exit(pip_exit_code)
+    ])
+    if pip_result.returncode != 0:
+        sys.exit(pip_result.returncode)
 
-os.execv(
-    sys.executable, [sys.executable, '-m', 'pip', 'install'] + sys.argv[2:]
-)
+# Note: os.exec exits parent process without waiting for child on Windows.
+# Do not use (caller would think install is complete when it is not).
+pip_result = subprocess.run([
+    sys.executable,
+    '-m',
+    'pip',
+    'install',
+] + sys.argv[2:])
+sys.exit(pip_result.returncode)
