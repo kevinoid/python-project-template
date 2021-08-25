@@ -14,10 +14,7 @@ import os.path
 import re
 import sys
 
-try:
-    from configparser import ConfigParser
-except ImportError:
-    from ConfigParser import ConfigParser
+from configparser import ConfigParser
 
 # Add parent dir to path for importing __version__ from packagename below
 _project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
