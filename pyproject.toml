@@ -38,6 +38,91 @@ multi_line_output = 3
 py_version = "all"
 use_parentheses = true
 
+[tool.pylint.basic]
+bad-names = [
+    # _LOGGER is too loud, even if it is more consistent
+    '_LOGGER',
+]
+good-names = [
+    # Ok for throw-away values
+    '_',
+    # _LOGGER is too loud, even if it is more consistent
+    '_logger',
+    # Single-letter index names with small scopes are ok
+    'i',
+    'j',
+    'k',
+]
+
+# pylint.extensions.docparams options
+# https://pylint.readthedocs.io/en/latest/technical_reference/extensions.html#parameter-documentation-checker-options
+accept-no-param-doc = false
+accept-no-raise-doc = false
+accept-no-return-doc = false
+accept-no-yields-doc = false
+default-docstring-type = 'sphinx'
+
+[tool.pylint.format]
+max-line-length = 80
+ignore-long-lines = '^\s*(# )?<?https?://\S+>?$'
+
+[tool.pylint.master]
+ignore = [
+    '.tox',
+    '.venv',
+    '.vulture',
+]
+# Add src to $PYTHONPATH so modules can be resolved during linting
+# See https://stackoverflow.com/q/1899436
+# FIXME: Can't get path to this file if specified using --rcfile option
+init-hook = '''
+import os.path
+import sys
+from pylint.config import find_default_config_files
+# Find this file by UUID
+for config_file in find_default_config_files():
+    if b'11773e58-e61a-4366-ba2b-0b75481de6de' in open(config_file, 'rb').read():
+        sys.path.append(os.path.join(os.path.dirname(config_file), 'src'))
+        break
+else:
+    sys.stderr.write('Error: init-hook unable to find config file\n')
+'''
+load-plugins = [
+    'pylint.extensions.bad_builtin',
+    'pylint.extensions.check_elif',
+    'pylint.extensions.docparams',
+    'pylint.extensions.emptystring',
+    'pylint.extensions.overlapping_exceptions',
+    'pylint.extensions.redefined_variable_type',
+    'pylint_quotes',
+]
+
+[tool.pylint.messages_control]
+disable = [
+    'fixme',
+    'locally-disabled',
+    'locally-enabled',
+    # Covered by pydocstyle/flake8-docstrings which can easily ignore tests
+    # See https://github.com/PyCQA/pylint/issues/618
+    'missing-docstring',
+    # Conflicts with isort when separately importing specific sub-modules:
+    #     import a
+    #     import b
+    #     from a import c
+    # Above is correct for isort, causes ungrouped-imports from pylint.
+    'ungrouped-imports',
+    # Python 2 open() doesn't accept encoding arg.
+    # TODO: Remove for projects not supporting Python 2.
+    'unspecified-encoding',
+]
+
+[tool.pylint.string_quotes]
+# Enforce string quoting style
+# Follow PEP 257 recommendation to use double quotes around docstrings
+docstring-quote = 'double'
+string-quote = 'single-avoid-escape'
+triple-quote = 'single'
+
 [tool.pytest.ini_options]
 addopts = [
     "--strict-config",
