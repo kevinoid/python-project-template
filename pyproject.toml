@@ -23,6 +23,15 @@ line-length = 80
 # Not supported:  https://github.com/ambv/black/issues/373
 skip-string-normalization = true
 
+[tool.coverage.run]
+branch = true
+omit = [
+    'docs/*',
+    'setup.py',
+    'tests/*',
+    '.vulture/*',
+]
+
 [tool.isort]
 known_first_party = 'packagename'
 # For compatibility with black (from black README.md) and

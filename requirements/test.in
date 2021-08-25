@@ -1,4 +1,6 @@
 # Abstract top-level dependencies for running tests
 mock; python_version < '3.3'
 pytest
-pytest-cov
+# Support for pyproject.toml added in 2.12.0
+# https://github.com/pytest-dev/pytest-cov/pull/410
+pytest-cov >= '2.12.0'
