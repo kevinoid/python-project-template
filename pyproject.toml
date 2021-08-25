@@ -42,9 +42,7 @@ include_trailing_comma = true
 line_length = 80
 lines_between_types = 1
 multi_line_output = 3
-# Include known standard library modules from all Python versions
-# (Default is 'py3' for all Python 3 versions.)
-py_version = 'all'
+py_version = 3
 use_parentheses = true
 
 [tool.pydocstyle]
