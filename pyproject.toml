@@ -6,16 +6,16 @@ requires = [
     # https://github.com/pypa/setuptools/pull/862
     # Support for setuptools.build_meta was added in 36.6.0 by
     # https://github.com/pypa/setuptools/pull/1143
-    "setuptools>=36.6.0",
+    'setuptools>=36.6.0',
     # For building wheels
-    "wheel",
+    'wheel',
 ]
 # Specify build-backend to avoid causing tox 3.7.0 to fail with:
 # ERROR: missing build-backend key at build-system section inside pyproject.toml
-# Note: pip would use "setuptools.build_meta:__legacy__" from
+# Note: pip would use 'setuptools.build_meta:__legacy__' from
 #       setuptools >=40.8.0 if build-backend is not specified.
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
-build-backend = "setuptools.build_meta"
+build-backend = 'setuptools.build_meta'
 
 [tool.black]
 line-length = 80
@@ -24,7 +24,7 @@ line-length = 80
 skip-string-normalization = true
 
 [tool.isort]
-known_first_party = "packagename"
+known_first_party = 'packagename'
 # For compatibility with black (from black README.md) and
 # https://pycqa.github.io/isort/docs/configuration/profiles/#black
 ensure_newline_before_comments = true
@@ -34,8 +34,8 @@ line_length = 80
 lines_between_types = 1
 multi_line_output = 3
 # Include known standard library modules from all Python versions
-# (Default is "py3" for all Python 3 versions.)
-py_version = "all"
+# (Default is 'py3' for all Python 3 versions.)
+py_version = 'all'
 use_parentheses = true
 
 [tool.pylint.basic]
@@ -125,14 +125,14 @@ triple-quote = 'single'
 
 [tool.pytest.ini_options]
 addopts = [
-    "--strict-config",
-    "--strict-markers",
+    '--strict-config',
+    '--strict-markers',
 ]
 # https://docs.pytest.org/en/stable/warnings.html
 # Note: last matches first (opposite of python -W)
 filterwarnings = [
     # Print all warnings
-    "always",
+    'always',
     # Treat warnings caused by this module (or submodules) as errors
     'error:::packagename(\.|$)',
 ]
