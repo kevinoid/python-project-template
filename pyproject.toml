@@ -47,6 +47,16 @@ multi_line_output = 3
 py_version = 'all'
 use_parentheses = true
 
+[tool.pydocstyle]
+# Several errors are ignored by default pep257 convention:
+# https://github.com/PyCQA/pydocstyle/blob/3.0.0/src/pydocstyle/violations.py#L242-L244
+# Re-add them by selecting all D errors.
+add_select = 'D'
+add_ignore = [
+    'D203',
+    'D212',
+]
+
 [tool.pylint.basic]
 bad-names = [
     # _LOGGER is too loud, even if it is more consistent

@@ -9,6 +9,9 @@ flake8-docstrings
 flake8-isort
 flake8-logging-format
 flake8-rst-docstrings
+# Support for pyproject.toml added in 6.1.0
+# https://github.com/PyCQA/pydocstyle/pull/534
+pydocstyle >= '6.1.0'
 # Required for `setup.py check --restructuredtext --strict`.  Otherwise:
 # warning: check: Cannot analyze code. Pygments package not found.
 pygments
