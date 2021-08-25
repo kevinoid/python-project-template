@@ -13,7 +13,6 @@ flake8-rst-docstrings
 # warning: check: Cannot analyze code. Pygments package not found.
 pygments
 pylint-quotes
-pylint_runner
 pyroma
 vulture
 
