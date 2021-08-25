@@ -22,11 +22,9 @@ sys.path.insert(0, os.path.join(_project_path, 'src'))
 
 
 _setup_cfg = ConfigParser()
-with open(os.path.join(_project_path, 'setup.cfg')) as _setup_file:
-    if hasattr(_setup_cfg, 'read_file'):
-        _setup_cfg.read_file(_setup_file)
-    else:
-        _setup_cfg.readfp(_setup_file)  # pylint: disable=deprecated-method
+_setup_cfg_path = os.path.join(_project_path, 'setup.cfg')
+with open(_setup_cfg_path, encoding='utf8') as _setup_file:
+    _setup_cfg.read_file(_setup_file)
 
 
 # -- Project information -----------------------------------------------------

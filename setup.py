@@ -44,7 +44,7 @@ def _load_requirements(req_path):
     :return: list of requirement specifications (as strings) in ``req_path``
     :rtype: List[str]
     """
-    with open(req_path) as req_file:
+    with open(req_path, encoding='utf8') as req_file:
         # FIXME: Move deps with markers to extra_depends for old setuptools?
         # https://hynek.me/articles/conditional-python-dependencies/#fixing-sdist
         # https://github.com/pypa/setuptools/issues/1080
