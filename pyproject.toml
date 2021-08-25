@@ -42,6 +42,12 @@ use_parentheses = true
 bad-names = [
     # _LOGGER is too loud, even if it is more consistent
     '_LOGGER',
+    'bar',
+    'baz',
+    'foo',
+    'tata',
+    'toto',
+    'tutu',
 ]
 good-names = [
     # Ok for throw-away values
