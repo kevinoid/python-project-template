@@ -35,6 +35,9 @@ disable =
     #     from a import c
     # Above is correct for isort, causes ungrouped-imports from pylint.
     ungrouped-imports,
+    # Python 2 open() doesn't accept encoding arg.
+    # TODO: Remove for projects not supporting Python 2.
+    unspecified-encoding,
 
 [FORMAT]
 max-line-length = 80
