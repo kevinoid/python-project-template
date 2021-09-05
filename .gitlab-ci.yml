@@ -8,9 +8,12 @@ stages:
 # Only run if primary passes, to avoid wasting cycles
 - test:secondary
 
+variables:
+  PYTHON: python3
+
 before_script:
-- python --version
-- python -m pip install --upgrade setuptools tox wheel
+- $PYTHON --version
+- $PYTHON -m pip install --upgrade setuptools tox wheel
 
 # Note: Using Docker Official Images for Python and PyPy:
 # https://hub.docker.com/_/python
@@ -21,34 +24,34 @@ before_script:
 test:primary:
   stage: test:primary
   image: python:alpine
-  script: python3 -m tox -vv -e lint,docs,py3
+  script: $PYTHON -m tox -vv -e lint,docs,py3
 
 # Test with earliest/latest supported version of Python 2
 test:py27:
   stage: test:secondary
   image: python:2.7-alpine
-  script: python -m tox -vv -e py27
+  variables:
+    PYTHON: python
+  script: $PYTHON -m tox -vv -e py27
 
 # Test with earliest supported version of Python 3
 test:py35:
   stage: test:secondary
   image: python:3.5-alpine
-  script: python3 -m tox -vv -e py35
+  script: $PYTHON -m tox -vv -e py35
 
 # Test with earliest supported version of PyPy 2
 test:pypy:
   stage: test:secondary
   image: pypy:2.7-slim
-  before_script:
-  - pypy --version
-  - pypy -m pip install --upgrade setuptools tox wheel
-  script: pypy -m tox -vv -e pypy
+  variables:
+    PYTHON: pypy
+  script: $PYTHON -m tox -vv -e pypy
 
 # Test with latest supported version of PyPy 3
 test:pypy3:
   stage: test:secondary
   image: pypy:slim
-  before_script:
-  - pypy3 --version
-  - pypy3 -m pip install --upgrade setuptools tox wheel
-  script: pypy3 -m tox -vv -e pypy3
+  variables:
+    PYTHON: pypy3
+  script: $PYTHON -m tox -vv -e pypy3
