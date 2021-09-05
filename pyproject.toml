@@ -139,6 +139,7 @@ disable = [
 
     # Messages not suitable for Python 2:
     # TODO: Remove for projects not supporting Python 2.
+    'redundant-u-string-prefix',
     'super-with-arguments',
     'unspecified-encoding',
 ]
