@@ -96,10 +96,10 @@ def _build_argument_parser():
 
 
 def main(*argv):
-    """
+    r"""
     Entry point for packagename command-line tool.
 
-    :param argv: command-line arguments (usually :py:data:`sys.argv`)
+    :param \*argv: command-line arguments (usually :py:data:`sys.argv`)
 
     :return: exit code
     :rtype: int
