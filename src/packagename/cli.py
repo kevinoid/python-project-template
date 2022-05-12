@@ -3,6 +3,8 @@
 # Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
 """Command-line interface for packagename."""
 
+from __future__ import absolute_import, division, print_function
+
 import argparse
 import logging
 
@@ -94,10 +96,10 @@ def _build_argument_parser():
 
 
 def main(*argv):
-    """
+    r"""
     Entry point for packagename command-line tool.
 
-    :param argv: command-line arguments (usually :py:data:`sys.argv`)
+    :param \*argv: command-line arguments (usually :py:data:`sys.argv`)
 
     :return: exit code
     :rtype: int

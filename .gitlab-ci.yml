@@ -8,47 +8,50 @@ stages:
 # Only run if primary passes, to avoid wasting cycles
 - test:secondary
 
+variables:
+  PYTHON: python3
+
 before_script:
-- python --version
-- python -m pip install --upgrade setuptools tox wheel
+- $PYTHON --version
+- $PYTHON -m pip install --upgrade setuptools tox wheel
 
 # Note: Using Docker Official Images for Python and PyPy:
 # https://hub.docker.com/_/python
 # https://hub.docker.com/_/pypy
-# Preferring Alpine images for minimalism.
+#
+# Alpine images are avoided due to:
+# 1. Lack of wheels.  Most wheels target https://github.com/pypa/manylinux
+#    which requires glibc (which is enforced since pip 21:
+#    https://github.com/pypa/pip/issues/9735).  Although
+#    https://www.python.org/dev/peps/pep-0656/ for musl has been accepted,
+#    wheels are still rare.
+#
+#    Specifically: black requires regex, which only has manylinux wheels:
+#    https://github.com/psf/black/issues/1112
+#    https://bitbucket.org/mrabarnett/mrab-regex/issues/311/linux-wheel-availability-on-pypi#comment-55493041
+# 2. Prevalence of compatibility and performance issues.
+#    https://bugs.python.org/issue32307
+#    https://github.com/iron-io/dockers/issues/42#issuecomment-290763088
+#    https://superuser.com/q/1219609
+#    (I'm not opposed to finding/fixing these, but the community consensus
+#    seems to be avoiding Alpine and I don't want to fight a 1-person battle.)
 
 # Lint, Docs, Test on latest supported release of Python
 test:primary:
   stage: test:primary
-  image: python:alpine
-  script: python3 -m tox -vv -e lint,docs,py3
-
-# Test with earliest/latest supported version of Python 2
-test:py27:
-  stage: test:secondary
-  image: python:2.7-alpine
-  script: python -m tox -vv -e py27
+  image: python:slim
+  script: $PYTHON -m tox -vv -e lint,docs,py3
 
 # Test with earliest supported version of Python 3
 test:py35:
   stage: test:secondary
-  image: python:3.5-alpine
-  script: python3 -m tox -vv -e py35
-
-# Test with earliest supported version of PyPy 2
-test:pypy:
-  stage: test:secondary
-  image: pypy:2.7-slim
-  before_script:
-  - pypy --version
-  - pypy -m pip install --upgrade setuptools tox wheel
-  script: pypy -m tox -vv -e pypy
+  image: python:3.5-slim
+  script: $PYTHON -m tox -vv -e py35
 
 # Test with latest supported version of PyPy 3
 test:pypy3:
   stage: test:secondary
   image: pypy:slim
-  before_script:
-  - pypy3 --version
-  - pypy3 -m pip install --upgrade setuptools tox wheel
-  script: pypy3 -m tox -vv -e pypy3
+  variables:
+    PYTHON: pypy3
+  script: $PYTHON -m tox -vv -e pypy3
