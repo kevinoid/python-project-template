@@ -6,8 +6,6 @@ full list see the documentation:
 https://www.sphinx-doc.org/en/master/config
 """
 
-from __future__ import absolute_import, division, print_function
-
 # Skip lint checks to preserve generated file sections and comments
 # pylint: disable=invalid-name, wrong-import-position
 # isort:skip_file

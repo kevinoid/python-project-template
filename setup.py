@@ -8,8 +8,6 @@ Distutils/Setuptools Setup Script.
 https://docs.python.org/3/distutils/setupscript.html
 """
 
-from __future__ import absolute_import, division, print_function
-
 import sys
 
 # Allow lowercase "constants" for script
