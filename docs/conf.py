@@ -30,7 +30,7 @@ with open(_setup_cfg_path, encoding='utf8') as _setup_file:
 # -- Project information -----------------------------------------------------
 
 project = _setup_cfg.get('metadata', 'friendly_name')
-author = '%s <%s>' % (
+author = '%s <%s>' % (  # pylint: disable=consider-using-f-string
     _setup_cfg.get('metadata', 'author'),
     _setup_cfg.get('metadata', 'author_email'),
 )
