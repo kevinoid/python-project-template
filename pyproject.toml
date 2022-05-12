@@ -143,6 +143,7 @@ disable = [
     'redundant-u-string-prefix',
     'super-with-arguments',
     'unspecified-encoding',
+    'useless-object-inheritance',
 ]
 
 [tool.pylint.string_quotes]
