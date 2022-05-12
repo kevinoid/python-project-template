@@ -1,5 +1,5 @@
 # This file is part of python-project-template
-# Made available under CC0 1.0 Universal, see LICENSE.txt
+# Made available under the terms of the MIT License, see LICENSE.txt
 # Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
 """packagename module."""
 

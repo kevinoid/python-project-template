@@ -1,5 +1,5 @@
 # This file is part of python-project-template
-# Made available under CC0 1.0 Universal, see LICENSE.txt
+# Made available under the terms of the MIT License, see LICENSE.txt
 # Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
 """Command-line interface for packagename."""
 
@@ -21,13 +21,12 @@ _VERSION_MESSAGE = (
 Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
 
 %(prog)s is free software; you can redistribute it and/or modify
-it under the terms of the CC0 1.0 Universal (CC0 1.0) Public Domain
-Dedication published by Creative Commons.
+it under the terms of the MIT License.
 
 %(prog)s is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-CC0 1.0 Universal (CC0 1.0) Public Domain Dedication for more details.'''
+the terms of the MIT License for more details.'''
 )
 
 _logger = logging.getLogger(__name__)
