@@ -1,6 +1,6 @@
 # This file is part of python-project-template
 # Made available under the terms of the MIT License, see LICENSE.txt
-# Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
+# Copyright 2019-2022 Kevin Locke <kevin@kevinlocke.name>
 """Command-line interface for packagename."""
 
 import argparse
@@ -16,7 +16,7 @@ _VERSION_MESSAGE = (
     + __version__
     + '''
 
-Copyright 2019-2020 Kevin Locke <kevin@kevinlocke.name>
+Copyright 2019-2022 Kevin Locke <kevin@kevinlocke.name>
 
 %(prog)s is free software; you can redistribute it and/or modify
 it under the terms of the MIT License.
