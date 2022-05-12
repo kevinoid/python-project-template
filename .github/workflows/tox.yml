@@ -62,9 +62,9 @@ jobs:
         - ubuntu-latest
         - windows-latest
         python:
-        - version: 3.5
+        - version: 3.7
           exe: python
-          toxenv: py35
+          toxenv: py37
         - version: 3.x
           exe: python
           toxenv: py3

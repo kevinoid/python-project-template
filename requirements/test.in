@@ -1,9 +1,5 @@
 # Abstract top-level dependencies for running tests
-# Support for Python 2.7 was dropped in coverage.py 6.0b1
-# https://coverage.readthedocs.io/en/latest/changes.html#version-6-0b1-2021-07-18
-coverage[toml] >= 6 ; python_version >= '3.6'
-coverage[toml] < 6 ; python_version < '3.6'
-mock; python_version < '3.3'
+coverage[toml]
 pytest
 # Support for pyproject.toml added in 2.12.0
 # https://github.com/pytest-dev/pytest-cov/pull/410
