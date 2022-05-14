@@ -6,6 +6,8 @@
 import argparse
 import logging
 
+from typing import Optional
+
 from . import __version__
 
 # Short license message varies by license.
@@ -30,7 +32,7 @@ the terms of the MIT License for more details.'''
 _logger = logging.getLogger(__name__)
 
 
-def _setup_logging(level=None):
+def _setup_logging(level: Optional[int] = None) -> None:
     """
     Initialize the logging framework with a root logger for the console.
 
@@ -44,7 +46,7 @@ def _setup_logging(level=None):
         rootlogger.setLevel(level)
 
 
-def _build_argument_parser():
+def _build_argument_parser() -> argparse.ArgumentParser:
     """
     Build parser for command line options.
 
@@ -92,7 +94,7 @@ def _build_argument_parser():
     return parser
 
 
-def main(*argv):
+def main(*argv: str) -> int:
     r"""
     Entry point for packagename command-line tool.
 

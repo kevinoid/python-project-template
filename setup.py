@@ -10,6 +10,8 @@ https://docs.python.org/3/distutils/setupscript.html
 
 import sys
 
+from typing import List
+
 # Allow lowercase "constants" for script
 # pylint: disable=invalid-name
 
@@ -34,7 +36,7 @@ except ImportError:
     )
 
 
-def _load_requirements(req_path):
+def _load_requirements(req_path: str) -> List[str]:
     """
     Read requirements specifications from a given file path.
 
