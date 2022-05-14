@@ -9,6 +9,7 @@ flake8-docstrings
 flake8-logging-format
 flake8-rst-docstrings >= '0.0.11'
 isort
+mypy
 # Support for pyproject.toml added in 6.1.0
 # https://github.com/PyCQA/pydocstyle/pull/534
 pydocstyle >= '6.1.0'
@@ -17,9 +18,6 @@ pydocstyle >= '6.1.0'
 pygments
 pylint-quotes
 pyroma
+types-mock
+types-setuptools
 vulture
-
-# For projects using PEP 484 type hints:
-# flake8-mypy
-# pyre-check
-# pytype
