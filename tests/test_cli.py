@@ -1,18 +1,11 @@
 """packagename.cli unit tests."""
 
+from io import StringIO
+from unittest.mock import patch
+
 import pytest
 
 from packagename import cli
-
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from io import StringIO
-
-try:
-    from unittest.mock import patch
-except ImportError:
-    from mock import patch
 
 
 @patch('sys.stdout', new_callable=StringIO)
