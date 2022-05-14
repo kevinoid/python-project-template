@@ -11,7 +11,7 @@ from typing import Optional
 from . import __version__
 
 # Short license message varies by license.
-# The text below is based on the GPL short text, modified for CC0.
+# The text below is based on the GPL short text, modified for the MIT License.
 # Change as appropriate.
 _VERSION_MESSAGE = (
     '%(prog)s '
