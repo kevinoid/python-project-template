@@ -1,9 +1,9 @@
 # Abstract top-level development dependencies (e.g. linters and other tools)
 bandit
-black; python_version >= '3.6'
-blacken-docs; python_version >= '3.6'
+black
+blacken-docs
 flake8
-flake8-bugbear; python_version >= '3.5'
+flake8-bugbear
 flake8-comprehensions
 flake8-docstrings
 flake8-logging-format
