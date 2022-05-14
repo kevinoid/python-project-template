@@ -44,6 +44,12 @@ lines_between_types = 1
 multi_line_output = 3
 use_parentheses = true
 
+[tool.mypy]
+disallow_any_unimported = true
+strict = true
+warn_return_any = true
+warn_unreachable = true
+
 [tool.pydocstyle]
 # Several errors are ignored by default pep257 convention:
 # https://github.com/PyCQA/pydocstyle/blob/3.0.0/src/pydocstyle/violations.py#L242-L244
