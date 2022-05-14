@@ -45,7 +45,9 @@ from packagename import __version__ as release  # noqa: E402
 # pylint: enable=import-error
 
 # The short X.Y version
-version = re.match('[0-9.]+', release).group(0)
+_version_match = re.match('[0-9.]+', release)
+assert _version_match is not None, '__version__ must start with a number'
+version = _version_match.group(0)
 
 
 # -- General configuration ---------------------------------------------------
