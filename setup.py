@@ -13,7 +13,7 @@ import sys
 # Allow lowercase "constants" for script
 # pylint: disable=invalid-name
 
-setuptools_version = None
+setuptools_version = '0.0.0'
 try:
     # isort: off
     from setuptools import __version__ as setuptools_version
