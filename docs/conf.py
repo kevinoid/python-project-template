@@ -93,6 +93,16 @@ language = None
 # This pattern also affects html_static_path and html_extra_path .
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# List of (domain, target) pairs to ignore warnings about in "nitpicky mode"
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-nitpick_ignore
+nitpick_ignore = [
+    # Typeshed type for csv.writer() return value is _csv._writer, which is
+    # not recognized by Sphinx <https://stackoverflow.com/q/51264355>
+    ('py:class', '_csv._writer'),
+]
+# Same as nitpick_ignore, except domain and target are regular expressions.
+# nitpick_ignore_regex = []
+
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
