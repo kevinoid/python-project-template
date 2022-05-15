@@ -41,10 +41,7 @@ def _load_requirements(req_path: str) -> List[str]:
     Read requirements specifications from a given file path.
 
     :param req_path: path of requirements file to load
-    :type req_path: str
-
     :return: list of requirement specifications (as strings) in ``req_path``
-    :rtype: List[str]
     """
     with open(req_path, encoding='utf8') as req_file:
         # FIXME: Move deps with markers to extra_depends for old setuptools?

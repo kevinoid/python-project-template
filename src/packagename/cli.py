@@ -37,7 +37,6 @@ def _setup_logging(level: Optional[int] = None) -> None:
     Initialize the logging framework with a root logger for the console.
 
     :param level: log level suitable for :py:func:`logging.Logger.setLevel`
-    :type level: int
     """
     handler = logging.StreamHandler()
     rootlogger = logging.getLogger()
@@ -51,7 +50,6 @@ def _build_argument_parser() -> argparse.ArgumentParser:
     Build parser for command line options.
 
     :return: argument parser
-    :rtype: argparse.ArgumentParser
     """
     parser = argparse.ArgumentParser(
         usage='%(prog)s [options] <file...>',
@@ -101,7 +99,6 @@ def main(*argv: str) -> int:
     :param \*argv: command-line arguments (usually :py:data:`sys.argv`)
 
     :return: exit code
-    :rtype: int
     """
     parser = _build_argument_parser()
     args = parser.parse_args(args=argv[1:])
