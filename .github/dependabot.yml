@@ -2,6 +2,10 @@
 # https://docs.github.com/code-security/supply-chain-security/configuration-options-for-dependency-updates
 version: 2
 updates:
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
 - package-ecosystem: "pip"
   directory: "/"
   schedule:
