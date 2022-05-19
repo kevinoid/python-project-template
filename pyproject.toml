@@ -158,6 +158,8 @@ addopts = [
 filterwarnings = [
     # Print all warnings
     'always',
+    # Ignore EncodingWarning outside our modules (too common/noisy)
+    'ignore::EncodingWarning',
     # Treat warnings caused by this module (or submodules) as errors
     'error:::packagename(\.|$)',
     # Treat warnings caused by the tests module (or submodules) as errors
