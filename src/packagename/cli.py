@@ -5,8 +5,9 @@
 
 import argparse
 import logging
+import sys
 
-from typing import Optional
+from typing import Optional, Sequence
 
 from . import __version__
 
@@ -92,11 +93,12 @@ def _build_argument_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main(*argv: str) -> int:
+# pylint: disable-next=dangerous-default-value
+def main(argv: Sequence[str] = sys.argv) -> int:
     r"""
     Entry point for packagename command-line tool.
 
-    :param \*argv: command-line arguments (usually :py:data:`sys.argv`)
+    :param argv: command-line arguments
 
     :return: exit code
     """

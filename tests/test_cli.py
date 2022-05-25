@@ -14,7 +14,7 @@ def test_main_help_prints_usage_then_exits(
     mock_stderr: Mock, mock_stdout: Mock
 ) -> None:
     with pytest.raises(SystemExit) as excinfo:
-        cli.main('packagename', '--help')
+        cli.main(['packagename', '--help'])
     stderr_content = mock_stderr.getvalue()
     stdout_content = mock_stdout.getvalue()
     assert not stderr_content
