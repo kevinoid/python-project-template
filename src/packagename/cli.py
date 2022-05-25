@@ -5,6 +5,7 @@
 
 import argparse
 import logging
+import os.path
 import sys
 
 from typing import Any, Optional, Sequence
@@ -103,7 +104,9 @@ def main(argv: Sequence[str] = sys.argv) -> int:
 
     :return: exit code
     """
-    parser = _build_argument_parser()
+    parser = _build_argument_parser(
+        prog=os.path.basename(argv[0]),
+    )
     args = parser.parse_args(args=argv[1:])
 
     # Set log level based on verbosity requested (default of INFO)
