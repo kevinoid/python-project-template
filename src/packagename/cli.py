@@ -7,6 +7,7 @@ from __future__ import absolute_import, division, print_function
 
 import argparse
 import logging
+import sys
 
 from . import __version__
 
@@ -94,11 +95,12 @@ def _build_argument_parser():
     return parser
 
 
-def main(*argv):
-    r"""
+def main(argv=sys.argv):  # pylint: disable=dangerous-default-value
+    """
     Entry point for packagename command-line tool.
 
-    :param \*argv: command-line arguments (usually :py:data:`sys.argv`)
+    :param argv: command-line arguments
+    :type argv: list[str]
 
     :return: exit code
     :rtype: int
