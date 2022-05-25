@@ -47,7 +47,7 @@ def _setup_logging(level=None):
         rootlogger.setLevel(level)
 
 
-def _build_argument_parser():
+def _build_argument_parser(**kwargs):
     """
     Build parser for command line options.
 
@@ -59,6 +59,7 @@ def _build_argument_parser():
         description='Do packagename stuff.',
         # Use raw formatter to avoid mangling version text
         formatter_class=argparse.RawDescriptionHelpFormatter,
+        **kwargs,
     )
     parser.add_argument(
         '-o',
