@@ -60,7 +60,7 @@ def _build_argument_parser(**kwargs):
         description='Do packagename stuff.',
         # Use raw formatter to avoid mangling version text
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        **kwargs,
+        **kwargs
     )
     parser.add_argument(
         '-o',
