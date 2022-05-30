@@ -97,7 +97,7 @@ def _build_argument_parser(**kwargs: Any) -> argparse.ArgumentParser:
 
 # pylint: disable-next=dangerous-default-value
 def main(argv: Sequence[str] = sys.argv) -> int:
-    r"""
+    """
     Entry point for packagename command-line tool.
 
     :param argv: command-line arguments
