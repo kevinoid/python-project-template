@@ -5,9 +5,15 @@ Project Template
 .. image:: https://img.shields.io/github/workflow/status/kevinoid/python-project-template/Tox/main.svg?style=flat&label=build
    :alt: Build Status
    :target: https://github.com/kevinoid/python-project-template/actions?query=branch%3Amain
+.. image:: https://img.shields.io/gitlab/pipeline-status/kevinoid/python-project-template.svg?branch=main&style=flat&label=build
+   :alt: Build Status
+   :target: https://gitlab.com/kevinoid/python-project-template/-/pipelines?ref=main
 .. image:: https://img.shields.io/codecov/c/github/kevinoid/python-project-template.svg?style=flat
    :alt: Coverage
    :target: https://codecov.io/github/kevinoid/python-project-template?branch=main
+.. image:: https://img.shields.io/gitlab/coverage/kevinoid/python-project-template/main.svg?style=flat
+   :alt: Coverage
+   :target: https://gitlab.com/kevinoid/python-project-template/-/graphs/main/charts
 .. image:: https://img.shields.io/david/kevinoid/python-project-template.svg?style=flat
    :alt: Dependency Status
    :target: https://david-dm.org/kevinoid/python-project-template
