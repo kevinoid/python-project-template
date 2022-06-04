@@ -124,14 +124,14 @@ This project is available under the terms of the `MIT License`_.
 See the `summary at TLDRLegal`_
 
 The `template`_ upon which this project is based is available under the
-terms of `the terms of the MIT License`_.
+terms of `CC0 1.0 Universal`_.
 
 .. === Begin reference names ===
 
 .. _API documentation: https://kevinoid.github.io/python-project-template/api
 .. _Bandit: https://github.com/PyCQA/bandit
 .. _Black: https://github.com/ambv/black
-.. _the terms of the MIT License: https://creativecommons.org/publicdomain/zero/1.0/
+.. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
 .. _Codecov: https://codecov.io/
 .. _GitHub Actions: https://docs.github.com/actions
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
