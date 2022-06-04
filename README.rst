@@ -14,9 +14,9 @@ Project Template
 .. image:: https://img.shields.io/gitlab/coverage/kevinoid/python-project-template/main.svg?style=flat
    :alt: Coverage
    :target: https://gitlab.com/kevinoid/python-project-template/-/graphs/main/charts
-.. image:: https://img.shields.io/david/kevinoid/python-project-template.svg?style=flat
+.. image:: https://img.shields.io/librariesio/release/pypi/python-project-template.svg?style=flat
    :alt: Dependency Status
-   :target: https://david-dm.org/kevinoid/python-project-template
+   :target: https://libraries.io/github/kevinoid/python-project-template
 .. image:: https://img.shields.io/pypi/pyversions/python-project-template.svg?style=flat
    :alt: Python Versions
    :target: https://pypi.org/project/python-project-template/
