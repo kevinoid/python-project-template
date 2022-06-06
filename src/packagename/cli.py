@@ -34,20 +34,6 @@ the terms of the MIT License for more details.'''
 _logger = logging.getLogger(__name__)
 
 
-def _setup_logging(level=None):
-    """
-    Initialize the logging framework with a root logger for the console.
-
-    :param level: log level suitable for :py:func:`logging.Logger.setLevel`
-    :type level: int
-    """
-    handler = logging.StreamHandler()
-    rootlogger = logging.getLogger()
-    rootlogger.addHandler(handler)
-    if level is not None:
-        rootlogger.setLevel(level)
-
-
 def _build_argument_parser(**kwargs):
     """
     Build parser for command line options.
@@ -114,7 +100,7 @@ def main(argv=sys.argv):  # pylint: disable=dangerous-default-value
 
     # Set log level based on verbosity requested (default of INFO)
     verbosity = (args.quiet or 0) - (args.verbose or 0)
-    _setup_logging(logging.INFO + verbosity * 10)
+    logging.basicConfig(level=logging.INFO + verbosity * 10)
 
     # Log version to aid debugging
     _logger.debug('packagename %s', __version__)
