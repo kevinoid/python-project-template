@@ -143,7 +143,6 @@ load-plugins = [
 disable = [
     'fixme',
     'locally-disabled',
-    'locally-enabled',
     # Covered by pydocstyle/flake8-docstrings which can easily ignore tests
     # See https://github.com/PyCQA/pylint/issues/618
     'missing-docstring',
