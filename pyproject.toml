@@ -17,6 +17,23 @@ requires = [
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
 build-backend = 'setuptools.build_meta'
 
+[tool.bandit]
+# Note: exclude is ignored by bandit 1.6.3 and later.
+# See https://github.com/PyCQA/bandit/issues/657
+exclude = [
+    '/.tox/',
+    '/.venv/',
+]
+skips = [
+    'B101', # assert_used (needed for pytest, arguably useful outside)
+    'B321', # ftplib (not actionable)
+    'B402', # import_ftplib (not actionable)
+    'B404', # import_subprocess (not actionable)
+    'B603', # subprocess_without_shell_equals_true (misleading and not actionable)
+    'B606', # start_process_with_no_shell (misleading and not actionable)
+    'B607', # start_process_with_partial_path (usually desirable for portability)
+]
+
 [tool.black]
 line-length = 80
 # Note: Would prefer normalization to single quote strings, double docstrings
