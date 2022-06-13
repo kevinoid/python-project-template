@@ -39,10 +39,7 @@ copyright = _setup_cfg.get('metadata', 'copyright')
 # pylint: enable=redefined-builtin
 
 # The full version, including alpha/beta/rc tags
-# pylint: disable=import-error
 from packagename import __version__ as release  # noqa: E402
-
-# pylint: enable=import-error
 
 # The short X.Y version
 _version_match = re.match('[0-9.]+', release)
