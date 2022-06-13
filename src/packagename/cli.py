@@ -1,3 +1,4 @@
+# PYTHON_ARGCOMPLETE_OK
 # This file is part of python-project-template
 # Made available under the terms of the MIT License, see LICENSE.txt
 # Copyright 2019-2022 Kevin Locke <kevin@kevinlocke.name>
@@ -9,6 +10,11 @@ import argparse
 import logging
 import os.path
 import sys
+
+try:
+    from argcomplete import autocomplete
+except ImportError:
+    autocomplete = None
 
 from . import __version__
 
@@ -96,6 +102,17 @@ def main(argv=sys.argv):  # pylint: disable=dangerous-default-value
     parser = _build_argument_parser(
         prog=os.path.basename(argv[0]),
     )
+
+    if autocomplete:
+        exit_codes = []
+
+        def exit_method(code=0):
+            exit_codes.append(code)
+
+        autocomplete(parser, exit_method=exit_method)
+        if exit_codes:
+            return exit_codes[0]
+
     args = parser.parse_args(args=argv[1:])
 
     # Set log level based on verbosity requested (default of INFO)
