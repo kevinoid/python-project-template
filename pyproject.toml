@@ -157,6 +157,9 @@ disable = [
     # Above is correct for isort, causes ungrouped-imports from pylint.
     'ungrouped-imports',
 ]
+enable = [
+    'useless-suppression',
+]
 
 [tool.pylint.string_quotes]
 # Enforce string quoting style
