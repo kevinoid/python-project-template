@@ -9,7 +9,7 @@ include README.rst
 include requirements/*.in
 
 # Include any PEP 0561 inline type information marker files
-global-include py.typed
+recursive-include src py.typed
 
 # Include documentation and tests in source package
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
