@@ -64,6 +64,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxarg.ext',
+    'sphinxcontrib.apidoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -207,6 +208,10 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
+
+# -- Options for apidoc extension --------------------------------------------
+
+apidoc_module_dir = '../src/packagename'
 
 # -- Options for intersphinx extension ---------------------------------------
 
