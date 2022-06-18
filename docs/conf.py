@@ -207,7 +207,7 @@ texinfo_documents = [
         'python-project-template Documentation',
         author,
         'python-project-template',
-        'One line description of project.',
+        _description,
         'Miscellaneous',
     )
 ]
