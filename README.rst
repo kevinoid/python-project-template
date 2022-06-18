@@ -17,6 +17,9 @@ Project Template
 .. image:: https://img.shields.io/librariesio/release/pypi/python-project-template.svg?style=flat
    :alt: Dependency Status
    :target: https://libraries.io/github/kevinoid/python-project-template
+.. image:: https://readthedocs.org/projects/python-project-template/badge/?version=latest
+   :target: https://python-project-template.readthedocs.io/en/latest/
+   :alt: Documentation Status
 .. image:: https://img.shields.io/pypi/pyversions/python-project-template.svg?style=flat
    :alt: Python Versions
    :target: https://pypi.org/project/python-project-template/
