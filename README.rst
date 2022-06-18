@@ -107,6 +107,15 @@ Recipes
 
 .. === End of Sphinx index content ===
 
+
+Documentation
+=============
+
+The `project documentation`_ is hosted on `Read the Docs`_.  See the `CLI
+documentation`_ for command-line options and usage, and the `API documentation`_
+for the Python API.
+
+
 API Docs
 ========
 
@@ -131,10 +140,11 @@ terms of `CC0 1.0 Universal`_.
 
 .. === Begin reference names ===
 
-.. _API documentation: https://kevinoid.github.io/python-project-template/api
+.. _API documentation: https://python-project-template.readthedocs.io/en/latest/api/modules.html
 .. _Bandit: https://github.com/PyCQA/bandit
 .. _Black: https://github.com/ambv/black
 .. _CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+.. _CLI documentation: https://python-project-template.readthedocs.io/en/latest/cli.html
 .. _Codecov: https://codecov.io/
 .. _GitHub Actions: https://docs.github.com/actions
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
@@ -143,6 +153,7 @@ terms of `CC0 1.0 Universal`_.
 .. _Packaging a python library: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure
 .. _Pipenv: https://pipenv.readthedocs.io/
 .. _Poetry: https://poetry.eustace.io/
+.. _Read the Docs: https://readthedocs.org/
 .. _Sphinx: https://www.sphinx-doc.org/
 .. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
 .. _contributing guidelines: CONTRIBUTING.rst
@@ -152,6 +163,7 @@ terms of `CC0 1.0 Universal`_.
 .. _pip constraint files: https://pip.pypa.io/en/stable/user_guide/#constraints-files
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. _pip: https://pip.pypa.io/
+.. _project documentation: https://python-project-template.readthedocs.io/
 .. _pyroma: https://github.com/regebro/pyroma
 .. _pytest: https://pytest.org/
 .. _sphinx-apidoc: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
