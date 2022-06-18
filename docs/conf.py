@@ -37,6 +37,7 @@ with open(os.path.join(_project_path, 'setup.cfg')) as _setup_file:
 # -- Project information -----------------------------------------------------
 
 project = _setup_cfg.get('metadata', 'friendly_name')
+_description = _setup_cfg.get('metadata', 'description')
 author = '%s <%s>' % (
     _setup_cfg.get('metadata', 'author'),
     _setup_cfg.get('metadata', 'author_email'),
@@ -185,9 +186,9 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (
-        master_doc,
-        'python-project-template',
-        'python-project-template Documentation',
+        'cli',
+        'packagename',
+        _description,
         [author],
         1,
     )
