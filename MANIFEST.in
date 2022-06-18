@@ -1,5 +1,5 @@
 # Additional files to include in package source distribution
-# https://packaging.python.org/guides/distributing-packages-using-setuptools/#manifest-in
+# https://packaging.python.org/en/latest/guides/using-manifest-in/
 
 include LICENSE.txt
 include README.rst
