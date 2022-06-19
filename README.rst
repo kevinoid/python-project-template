@@ -163,6 +163,6 @@ terms of `CC0 1.0 Universal`_.
 .. _sphinx-apidoc: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
 .. _sphinx-argparse: https://sphinx-argparse.readthedocs.io
 .. _summary at TLDRLegal: https://tldrlegal.com/license/mit-license
-.. _template: https://pypi.org/project/python-project-template/
+.. _template: https://github.com/kevinoid/python-project-template
 .. _this package: https://pypi.org/project/python-project-template/
 .. _tox: https://tox.readthedocs.io
