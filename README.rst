@@ -143,14 +143,14 @@ terms of `CC0 1.0 Universal`_.
 .. _GitHub Actions: https://docs.github.com/actions
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 .. _Good Integration Practices: https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code
-.. _MIT License: LICENSE.txt
+.. _MIT License: https://github.com/kevinoid/python-project-template/blob/main/LICENSE.txt
 .. _Packaging a python library: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure
 .. _Pipenv: https://pipenv.readthedocs.io/
 .. _Poetry: https://poetry.eustace.io/
 .. _Read the Docs: https://readthedocs.org/
 .. _Sphinx: https://www.sphinx-doc.org/
 .. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
-.. _contributing guidelines: CONTRIBUTING.rst
+.. _contributing guidelines: https://github.com/kevinoid/python-project-template/blob/main/CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
 .. _flake8: https://flake8.readthedocs.io/
 .. _hash-checked: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
