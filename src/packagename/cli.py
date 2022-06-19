@@ -12,6 +12,10 @@ import sys
 
 from . import __version__
 
+__all__ = [
+    'main',
+]
+
 # Short license message varies by license.
 # The text below is based on the GPL short text, modified for the MIT License.
 # Change as appropriate.
