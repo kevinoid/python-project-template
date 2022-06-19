@@ -3,4 +3,5 @@
 # Copyright 2019-2022 Kevin Locke <kevin@kevinlocke.name>
 """packagename module."""
 
+# Note: Must comply with https://peps.python.org/pep-0440/
 __version__ = '0.1.0'
