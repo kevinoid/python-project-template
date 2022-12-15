@@ -2,7 +2,7 @@
 Project Template
 ================
 
-.. image:: https://img.shields.io/github/workflow/status/kevinoid/python-project-template/Tox/main.svg?style=flat&label=build
+.. image:: https://img.shields.io/github/actions/workflow/status/kevinoid/python-project-template/tox.yml?branch=main&style=flat&label=build
    :alt: Build Status
    :target: https://github.com/kevinoid/python-project-template/actions?query=branch%3Amain
 .. image:: https://img.shields.io/gitlab/pipeline-status/kevinoid/python-project-template.svg?branch=main&style=flat&label=build
