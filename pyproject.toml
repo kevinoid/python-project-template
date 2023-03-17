@@ -18,11 +18,11 @@ requires = [
 build-backend = 'setuptools.build_meta'
 
 [tool.bandit]
-# Note: exclude is ignored by bandit 1.6.3 and later.
-# See https://github.com/PyCQA/bandit/issues/657
-exclude = [
+exclude_dirs = [
+    '/.git/',
     '/.tox/',
     '/.venv/',
+    '/__pycache__/',
 ]
 skips = [
     'B101', # assert_used (needed for pytest, arguably useful outside)
