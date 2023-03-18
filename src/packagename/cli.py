@@ -12,9 +12,11 @@ import sys
 from typing import Any, Sequence
 
 try:
-    from argcomplete import autocomplete  # type: ignore
+    from argcomplete import autocomplete
+
+    _HAVE_AUTOCOMPLETE = True
 except ImportError:
-    autocomplete = None
+    _HAVE_AUTOCOMPLETE = False
 
 from . import __version__
 
@@ -105,7 +107,7 @@ def main(argv: Sequence[str] = sys.argv) -> int:
         prog=os.path.basename(argv[0]),
     )
 
-    if autocomplete:
+    if _HAVE_AUTOCOMPLETE:
         exit_code = None
 
         def exit_method(code: int = 0) -> None:
