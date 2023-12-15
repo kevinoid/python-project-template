@@ -39,7 +39,7 @@ jobs:
     - name: Build wheel
       run: python setup.py bdist_wheel
     - name: Archive wheel
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: wheel
         path: dist/*.whl
@@ -98,7 +98,7 @@ jobs:
     - name: Build wheel
       run: ${{ matrix.python.exe }} setup.py bdist_wheel
     - name: Archive wheel
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: wheel
         path: dist/*.whl
