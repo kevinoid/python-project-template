@@ -8,6 +8,7 @@ flake8
 flake8-bugbear
 flake8-comprehensions
 flake8-docstrings
+flake8-quotes
 flake8-logging-format
 flake8-rst-docstrings >= 0.0.11
 isort
@@ -18,7 +19,7 @@ pydocstyle >= 6.1.0
 # Required for `setup.py check --restructuredtext --strict`.  Otherwise:
 # warning: check: Cannot analyze code. Pygments package not found.
 pygments
-pylint-quotes
+pylint
 pyroma
 types-mock
 types-setuptools

@@ -140,7 +140,6 @@ load-plugins = [
     'pylint.extensions.eq_without_hash',
     'pylint.extensions.overlapping_exceptions',
     'pylint.extensions.redefined_variable_type',
-    'pylint_quotes',
 ]
 
 [tool.pylint.messages_control]
@@ -160,13 +159,6 @@ disable = [
 enable = [
     'useless-suppression',
 ]
-
-[tool.pylint.string_quotes]
-# Enforce string quoting style
-# Follow PEP 257 recommendation to use double quotes around docstrings
-docstring-quote = 'double'
-string-quote = 'single-avoid-escape'
-triple-quote = 'single'
 
 [tool.pytest.ini_options]
 addopts = [
