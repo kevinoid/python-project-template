@@ -136,7 +136,6 @@ load-plugins = [
     'pylint.extensions.bad_builtin',
     'pylint.extensions.check_elif',
     'pylint.extensions.docparams',
-    'pylint.extensions.emptystring',
     'pylint.extensions.eq_without_hash',
     'pylint.extensions.overlapping_exceptions',
     'pylint.extensions.redefined_variable_type',
