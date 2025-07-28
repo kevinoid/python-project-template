@@ -12,6 +12,7 @@ from packagename import cli
 
 # Note: Path not created on the filesystem.  Only used for mocking.
 _COMPLETIONS_FILENAME = 'unittest/mock/argcomplete'
+_OPEN = open
 
 
 def _open_mock_for(for_file: str) -> Callable[..., Any]:
@@ -51,8 +52,7 @@ def _open_mock_for(for_file: str) -> Callable[..., Any]:
                 # No need to ignore it if it doesn't exist
                 pass
 
-            # pylint: disable-next=unspecified-encoding
-            return open(file, *args, **kwargs)
+            return _OPEN(file, *args, **kwargs)
 
     # Save created Mocks so the caller can test them
     maybe_mock_open.mock_files = []  # type: ignore
@@ -69,7 +69,7 @@ def _open_mock_for(for_file: str) -> Callable[..., Any]:
         'COMP_TYPE': '33',
     },
 )
-@patch('argcomplete.open', side_effect=_open_mock_for(_COMPLETIONS_FILENAME))
+@patch('builtins.open', side_effect=_open_mock_for(_COMPLETIONS_FILENAME))
 @patch('sys.argv', ['packagename'])
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
