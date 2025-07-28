@@ -130,8 +130,8 @@ def main(argv: Sequence[str] = sys.argv) -> int:
     try:
         # Do stuff here
         pass
-    except Exception as exc:  # pylint: disable=broad-except
-        _logger.error('Unhandled Error: %s', exc, exc_info=True)
+    except Exception:  # pylint: disable=broad-except
+        _logger.exception('Unhandled Error')
         return 1
 
     return 0
