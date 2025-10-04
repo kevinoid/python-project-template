@@ -20,6 +20,8 @@ on:   # yamllint disable-line rule:truthy
   # in-range updates and without sending a PR.)
   - cron: '20 8 * * *'
 
+permissions: {}
+
 jobs:
   test-primary:
     name: Lint, Docs, Test on Python 3
