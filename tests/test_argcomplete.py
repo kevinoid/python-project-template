@@ -12,7 +12,7 @@ from packagename import cli
 
 # Note: Path not created on the filesystem.  Only used for mocking.
 _COMPLETIONS_FILENAME = 'unittest/mock/argcomplete'
-_OPEN = open
+_open = open
 
 
 def _open_mock_for(for_file: str) -> Callable[..., Any]:
@@ -52,7 +52,7 @@ def _open_mock_for(for_file: str) -> Callable[..., Any]:
                 # No need to ignore it if it doesn't exist
                 pass
 
-            return _OPEN(file, *args, **kwargs)
+            return _open(file, *args, **kwargs)
 
     # Save created Mocks so the caller can test them
     maybe_mock_open.mock_files = []  # type: ignore
