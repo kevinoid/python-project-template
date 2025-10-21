@@ -62,7 +62,6 @@ def _build_argument_parser(**kwargs: Any) -> argparse.ArgumentParser:
     parser.add_argument(
         '-o',
         '--output',
-        type=argparse.FileType('w'),
         default='-',
         help='Output file (default: -)',
     )
