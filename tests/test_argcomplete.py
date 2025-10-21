@@ -4,43 +4,35 @@ import os
 import sys
 
 from io import StringIO
-from typing import Any, Callable
+from typing import cast
 from unittest.mock import Mock, mock_open, patch
 
 from packagename import cli
 
 
-def _make_fdopen_mock() -> Callable[..., Any]:
-    """
-    Create a function which returns a Mock only for a given file.
+class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
+    """A callable object for mocking os.fdopen for argcomplete."""
 
-    :param for_file: file for which a Mock should be returned.
+    def __init__(self) -> None:
+        self.completion_file: Mock = mock_open().return_value
+        self.error_file: Mock = mock_open().return_value
 
-    :return: side_effect function which returns a Mock when called with
-             for_file and delegates to open() otherwise.
-    """
-
-    def maybe_mock_fdopen(fd: int, mode: str) -> Any:
+    def __call__(self, fd: int, mode: str) -> Mock:
         r"""
-        Open a file or create a Mock for the file.
+        Open a mock file descriptor.
 
         :param fd: file descriptor to open
         :param mode: mode in which the file descriptor is opened
 
-        :return: a Mock if file is 8 or 9 and mode is "w".
+        :return: a file Mock.
         """
-        assert fd in (8, 9)
-        assert mode == 'w'
-
         if fd == 8:
-            return maybe_mock_fdopen.completion_file
+            return self.completion_file
 
-        return maybe_mock_fdopen.error_file
+        if fd == 9:
+            return self.error_file
 
-    # Save created Mocks so the caller can test them
-    maybe_mock_fdopen.completion_file = mock_open().return_value
-    maybe_mock_fdopen.error_file = mock_open().return_value
-    return maybe_mock_fdopen
+        return cast(Mock, mock_open().return_value)
 
 
 @patch.dict(
@@ -52,7 +44,7 @@ def _make_fdopen_mock() -> Callable[..., Any]:
         'COMP_TYPE': '33',
     },
 )
-@patch('os.fdopen', side_effect=_make_fdopen_mock())
+@patch('os.fdopen', side_effect=ArgcompleteFdopenMock())
 @patch('sys.argv', ['packagename'])
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
@@ -96,7 +88,7 @@ def test_argcomplete_dash_options(
         'COMP_TYPE': '33',
     },
 )
-@patch('os.fdopen', side_effect=_make_fdopen_mock())
+@patch('os.fdopen', side_effect=ArgcompleteFdopenMock())
 @patch('sys.argv', ['packagename'])
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
