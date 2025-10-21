@@ -85,3 +85,34 @@ def test_argcomplete_dash_options(
             )
         )
     )
+
+
+@patch.dict(
+    os.environ,
+    {
+        '_ARGCOMPLETE': '1',
+        'COMP_LINE': 'packagename --output L',
+        'COMP_POINT': '22',
+        'COMP_TYPE': '33',
+    },
+)
+@patch('os.fdopen', side_effect=_make_fdopen_mock())
+@patch('sys.argv', ['packagename'])
+@patch('sys.stdout', new_callable=StringIO)
+@patch('sys.stderr', new_callable=StringIO)
+def test_argcomplete_output_files(
+    mock_stderr: Mock, mock_stdout: Mock, mock_fdopen_comp: Mock
+) -> None:
+    assert cli.main(sys.argv) == 0
+    assert not mock_stderr.getvalue()
+    assert not mock_stdout.getvalue()
+
+    mock_fdopen_comp.assert_any_call(8, 'w')
+    mock_fdopen_comp.assert_any_call(9, 'w')
+    assert mock_fdopen_comp.call_count == 2
+
+    mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
+
+    mock_fdopen_comp.side_effect.completion_file.write.assert_called_once_with(
+        'LICENSE.txt '
+    )
