@@ -43,10 +43,10 @@ test:primary:
   script: $PYTHON -m tox -vv -e lint,docs,py3
 
 # Test with earliest supported version of Python 3
-test:py39:
+test:py310:
   stage: test:secondary
-  image: python:3.9-slim
-  script: $PYTHON -m tox -vv -e py39
+  image: python:3.10-slim
+  script: $PYTHON -m tox -vv -e py310
 
 # Test with latest supported version of PyPy 3
 test:pypy3:
