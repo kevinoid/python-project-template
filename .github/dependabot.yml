@@ -2,11 +2,15 @@
 # https://docs.github.com/code-security/supply-chain-security/configuration-options-for-dependency-updates
 version: 2
 updates:
-- package-ecosystem: "github-actions"  # zizmor: ignore[dependabot-cooldown]
+- package-ecosystem: "github-actions"
   directory: "/"
   schedule:
     interval: "daily"
-- package-ecosystem: "pip"  # zizmor: ignore[dependabot-cooldown]
+  cooldown:
+    default-days: 4
+- package-ecosystem: "pip"
   directory: "/"
   schedule:
     interval: "daily"
+  cooldown:
+    default-days: 4
