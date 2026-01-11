@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # This file is part of packagename <https://github.com/kevinoid/packagename>
 # Made available under the terms of the MIT License, see LICENSE.txt
-# Copyright 2019-2022 Kevin Locke <kevin@kevinlocke.name>
+# Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>
 """
 Distutils/Setuptools Setup Script.
 
