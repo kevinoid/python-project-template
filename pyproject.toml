@@ -1,3 +1,6 @@
+# PEP 518/621 Project Metadata File
+# https://packaging.python.org/en/latest/specifications/pyproject-toml/
+
 [build-system]
 # Minimum requirements for the build system to execute.
 # See https://www.python.org/dev/peps/pep-0518/
@@ -19,6 +22,95 @@ requires = [
 #       setuptools >=40.8.0 if build-backend is not specified.
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'python-project-template'
+# Human 'friendly' project name for sphinx and other non-setup uses
+friendly-name = 'Python Project Template'
+description = 'Short description of this package and its purpose.'
+readme = 'README.rst'
+# license should be a valid SPDX license expression
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
+# Is also printed by `./setup.py --license`.  Match classifier where possible.
+license = 'MIT'
+license-files = ['LICENSE.txt']
+authors = [{name = 'Kevin Locke', email = 'kevin@kevinlocke.name'}]
+# Copyright statement for sphinx and other non-setup uses
+copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
+# From PyPI classifiers list: https://pypi.org/classifiers/
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Topic :: Software Development',
+]
+# (Optional) Additional keywords used to assist searching.
+keywords = ['sample setuptools development']
+requires-python = '>=3.10'
+dynamic = ['version']
+
+[project.optional-dependencies]
+# Optional dependencies
+# https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#optional-dependencies
+argcomplete = ['argcomplete']
+
+[project.scripts]
+# Define entry points for automatic executable creation
+# https://setuptools.pypa.io/en/latest/userguide/quickstart.html#entry-points-and-automatic-script-creation
+packagename = 'packagename.cli:main'
+
+[project.urls]
+# Project URLs for specific purposes
+# https://packaging.python.org/en/latest/specifications/well-known-project-urls/
+Homepage = 'https://github.com/kevinoid/python-project-template'
+Documentation = 'https://python-project-template.readthedocs.io/'
+GitHub = 'https://github.com/kevinoid/python-project-template'
+Tracker = 'https://github.com/kevinoid/python-project-template/issues'
+
+[tool.setuptools]
+zip-safe = true
+package-dir = {'' = 'src'}
+# Use packages for directories, py_modules for single-file modules
+# See https://packaging.python.org/guides/distributing-packages-using-setuptools/#packages
+# py_modules = packagename
+# Note: install_requires and tests_require from requirements/*.in by setup.py
+include-package-data = false
+
+[tool.setuptools.packages.find]
+exclude = ['tests']
+where = ['src']
+namespaces = false
+
+[tool.setuptools.package-data]
+# Additional data files to include in the package
+# https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+#
+# Note: If files should also be included in source distributions, also add them
+# to MANIFEST.in.  See https://stackoverflow.com/a/14159430
+#
+# If all files included in the sdist should be included in the bdist, consider
+# setting include_package_data = True in [options]
+packagename = [
+    # Mark as containing inline type information
+    # https://peps.python.org/pep-0561/#packaging-type-information
+    'py.typed',
+]
+
+[tool.setuptools.dynamic]
+version = {attr = 'packagename.__version__'}
+
+[tool.aliases]
+test = 'pytest'
 
 [tool.bandit]
 exclude_dirs = [
