@@ -31,7 +31,6 @@ description = 'Short description of this package and its purpose.'
 readme = 'README.rst'
 # license should be a valid SPDX license expression
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license
-# Is also printed by `./setup.py --license`.  Match classifier where possible.
 license = 'MIT'
 license-files = ['LICENSE.txt']
 authors = [{name = 'Kevin Locke', email = 'kevin@kevinlocke.name'}]
@@ -41,7 +40,6 @@ copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
 classifiers = [
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
