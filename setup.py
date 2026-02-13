@@ -18,21 +18,26 @@ from typing import List
 setuptools_version = '0.0.0'
 try:
     # isort: off
-    from setuptools import __version__ as setuptools_version
+    from setuptools import __version__ as setuptools_version, setup
 
     # isort: on
 
     # setup.cfg is supported if and only if setuptools.config can be imported.
     # Simpler and more reliable than version string parsing+comparison.
     import setuptools.config  # noqa: F401 pylint: disable=unused-import
-
-    from pkg_resources import parse_requirements
-    from setuptools import setup
 except ImportError:
     # TODO: Use (partial) backport of setuptools.config.read_configuration?
     raise AssertionError(  # pylint: disable=raise-missing-from
         'setup.py requires setuptools with support for setup.cfg '
         + f'({setuptools_version} < 30.3.0)'
+    )
+
+try:
+    from pkg_resources import parse_requirements
+except ImportError:
+    raise AssertionError(  # pylint: disable=raise-missing-from
+        'setup.py requires setuptools with pkg_resources '
+        + f'({setuptools_version} >= 82.0.0)'
     )
 
 

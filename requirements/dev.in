@@ -21,6 +21,7 @@ pydocstyle >= 6.1.0
 pygments
 pylint
 pyroma
+setuptools < 82
 types-mock
-types-setuptools
+types-setuptools < 82
 vulture

@@ -13,7 +13,7 @@ variables:
 
 before_script:
 - $PYTHON --version
-- $PYTHON -m pip install --upgrade setuptools tox wheel
+- $PYTHON -m pip install --upgrade 'setuptools<82' tox wheel
 
 # Note: Using Docker Official Images for Python and PyPy:
 # https://hub.docker.com/_/python
