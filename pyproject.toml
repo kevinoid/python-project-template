@@ -186,7 +186,6 @@ skip-string-normalization = true
 branch = true
 omit = [
     'docs/*',
-    'setup.py',
     'tests/*',
     '.vulture/*',
 ]

@@ -69,8 +69,8 @@ Introductory Example
       done
 
   This system has the benefit of allowing easy installation of fully or
-  minimally constrained dependencies from many tools (``setup.py``, ``pip``,
-  ``tox``, etc.) without duplication.
+  minimally constrained dependencies from many tools (``pip``, ``tox``, etc.)
+  without duplication.
 
   I have experimented with several other approaches, including `pip constraint
   files`_ (``constraints.txt``), Pipenv_ (``Pipfile``/``Pipfile.lock``),
