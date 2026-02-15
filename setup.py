@@ -10,8 +10,6 @@ https://docs.python.org/3/distutils/setupscript.html
 
 import sys
 
-from typing import List
-
 # Allow lowercase "constants" for script
 # pylint: disable=invalid-name
 
@@ -32,28 +30,6 @@ except ImportError:
         + f'({setuptools_version} < 30.3.0)'
     )
 
-try:
-    from pkg_resources import parse_requirements
-except ImportError:
-    raise AssertionError(  # pylint: disable=raise-missing-from
-        'setup.py requires setuptools with pkg_resources '
-        + f'({setuptools_version} >= 82.0.0)'
-    )
-
-
-def _load_requirements(req_path: str) -> List[str]:
-    """
-    Read requirements specifications from a given file path.
-
-    :param req_path: path of requirements file to load
-    :return: list of requirement specifications (as strings) in ``req_path``
-    """
-    with open(req_path, encoding='utf8') as req_file:
-        # FIXME: Move deps with markers to extra_depends for old setuptools?
-        # https://hynek.me/articles/conditional-python-dependencies/#fixing-sdist
-        # https://github.com/pypa/setuptools/issues/1080
-        return [str(req) for req in parse_requirements(req_file)]
-
 
 setup_requires = []
 
@@ -64,7 +40,5 @@ if {'pytest', 'test', 'ptr'}.intersection(sys.argv):
     setup_requires.append('pytest-runner')
 
 setup(
-    install_requires=_load_requirements('requirements/install.in'),
     setup_requires=setup_requires,
-    tests_require=_load_requirements('requirements/test.in'),
 )

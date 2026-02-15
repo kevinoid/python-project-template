@@ -9,10 +9,7 @@ requires = [
     # https://github.com/pypa/setuptools/pull/862
     # Support for setuptools.build_meta was added in 36.6.0 by
     # https://github.com/pypa/setuptools/pull/1143
-    # pkg_resources was removed from setuptools in 82.0.0
-    # https://github.com/pypa/setuptools/issues/3085
-    # https://setuptools.pypa.io/en/latest/history.html#v82-0-0
-    'setuptools>=36.6.0,<82',
+    'setuptools>=36.6.0',
     # For building wheels
     'wheel',
 ]
@@ -22,6 +19,59 @@ requires = [
 #       setuptools >=40.8.0 if build-backend is not specified.
 # https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
 build-backend = 'setuptools.build_meta'
+
+[dependency-groups]
+# Groups of dependencies for development use-cases
+# https://packaging.python.org/en/latest/specifications/dependency-groups/
+dev = [
+    { include-group = "lint" },
+    { include-group = "test" },
+]
+lint = [
+    # Abstract top-level development dependencies (e.g. linters and other tools)
+    # Support for pyproject.toml added in 1.7.1
+    # https://github.com/PyCQA/bandit/pull/401
+    'bandit[toml] >= 1.7.1',
+    'black',
+    'blacken-docs',
+    'flake8',
+    'flake8-bugbear',
+    'flake8-comprehensions',
+    'flake8-docstrings',
+    'flake8-quotes',
+    'flake8-logging-format',
+    'flake8-rst-docstrings >= 0.0.11',
+    'isort',
+    'mypy',
+    # Support for pyproject.toml added in 6.1.0
+    # https://github.com/PyCQA/pydocstyle/pull/534
+    'pydocstyle >= 6.1.0',
+    # Required for `setup.py check --restructuredtext --strict`.  Otherwise:
+    # warning: check: Cannot analyze code. Pygments package not found.
+    'pygments',
+    'pylint',
+    'pyroma',
+    # Require setuptools with pkg_resources as a workaround for
+    # https://github.com/globality-corp/flake8-logging-format/issues/80
+    'setuptools < 82',
+    'types-mock',
+    'types-setuptools',
+    'vulture',
+]
+docs = [
+    # Abstract top-level documentation generator dependencies
+    'Sphinx',
+    'sphinx-argparse',
+    'sphinxcontrib-apidoc',
+]
+test = [
+    # Abstract top-level dependencies for running tests
+    'coverage[toml]',
+    'pytest',
+    # Support for pyproject.toml added in 2.12.0
+    # https://github.com/pytest-dev/pytest-cov/pull/410
+    'pytest-cov >= 2.12.0',
+]
 
 [project]
 name = 'python-project-template'
@@ -53,6 +103,9 @@ classifiers = [
 keywords = ['sample setuptools development']
 requires-python = '>=3.10'
 dynamic = ['version']
+dependencies = [
+    # Abstract top-level run-time dependencies
+]
 
 [project.optional-dependencies]
 # Optional dependencies
@@ -78,7 +131,6 @@ package-dir = {'' = 'src'}
 # Use packages for directories, py_modules for single-file modules
 # See https://packaging.python.org/guides/distributing-packages-using-setuptools/#packages
 # py_modules = packagename
-# Note: install_requires and tests_require from requirements/*.in by setup.py
 include-package-data = false
 
 [tool.setuptools.packages.find]

@@ -4,10 +4,6 @@
 include LICENSE.txt
 include README.rst
 
-# Minimally-constrained requirements files are used by setup.py,
-# so must be included.  See https://stackoverflow.com/a/38533721
-include requirements/*.in
-
 # Include any PEP 0561 inline type information marker files
 recursive-include src py.typed
 
