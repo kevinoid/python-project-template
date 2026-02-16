@@ -15,6 +15,7 @@ class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
     """A callable object for mocking os.fdopen for argcomplete."""
 
     def __init__(self) -> None:
+        """Construct an ArgcompleteFdopenMock."""
         self.completion_file: Mock = mock_open().return_value
         self.error_file: Mock = mock_open().return_value
 
