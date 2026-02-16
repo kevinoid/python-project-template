@@ -18,7 +18,7 @@ class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
         self.completion_file: Mock = mock_open().return_value
         self.error_file: Mock = mock_open().return_value
 
-    def __call__(self, fd: int, mode: str) -> Mock:
+    def __call__(self, fd: int, mode: str) -> Mock:  # noqa: ARG002
         r"""
         Open a mock file descriptor.
 
