@@ -4,11 +4,23 @@ import os
 import sys
 
 from io import StringIO
-from typing import cast
+from typing import Final, cast
 from unittest import skipIf
 from unittest.mock import Mock, mock_open, patch
 
 from packagename import cli
+
+# argcomplete writes completions to file descriptor 8:
+# https://github.com/kislyuk/argcomplete/blob/v3.6.3/argcomplete/finders.py#L131
+# which is subsequently redirected to stdout for bash-completion:
+# https://github.com/kislyuk/argcomplete/blob/v3.6.3/argcomplete/shell_integration.py#L27
+_ARGCOMPLETE_OUT_FD: Final = 8
+
+# argcomplete writes debug output to file descriptor 9:
+# https://github.com/kislyuk/argcomplete/blob/v3.6.3/argcomplete/finders.py#L200
+# which is subsequently redirected to stderr for bash-completion:
+# https://github.com/kislyuk/argcomplete/blob/v3.6.3/argcomplete/shell_integration.py#L27
+_ARGCOMPLETE_ERR_FD: Final = 9
 
 
 class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
@@ -28,10 +40,10 @@ class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
 
         :return: a file Mock.
         """
-        if fd == 8:
+        if fd == _ARGCOMPLETE_OUT_FD:
             return self.completion_file
 
-        if fd == 9:
+        if fd == _ARGCOMPLETE_ERR_FD:
             return self.error_file
 
         return cast(Mock, mock_open().return_value)
@@ -59,8 +71,8 @@ def test_argcomplete_dash_options(
     assert not mock_stderr.getvalue()
     assert not mock_stdout.getvalue()
 
-    mock_fdopen_comp.assert_any_call(8, 'w')
-    mock_fdopen_comp.assert_any_call(9, 'w')
+    mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_OUT_FD, 'w')
+    mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_ERR_FD, 'w')
     assert mock_fdopen_comp.call_count == 2
 
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
@@ -106,8 +118,8 @@ def test_argcomplete_output_files(
     assert not mock_stderr.getvalue()
     assert not mock_stdout.getvalue()
 
-    mock_fdopen_comp.assert_any_call(8, 'w')
-    mock_fdopen_comp.assert_any_call(9, 'w')
+    mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_OUT_FD, 'w')
+    mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_ERR_FD, 'w')
     assert mock_fdopen_comp.call_count == 2
 
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
