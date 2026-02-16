@@ -11,7 +11,8 @@ from packagename import cli
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
 def test_main_help_prints_usage_then_exits(
-    mock_stderr: Mock, mock_stdout: Mock
+    mock_stderr: Mock,
+    mock_stdout: Mock,
 ) -> None:
     with pytest.raises(SystemExit) as excinfo:
         cli.main(['packagename', '--help'])

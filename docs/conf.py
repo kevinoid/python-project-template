@@ -172,7 +172,7 @@ latex_documents = [
         'python-project-template Documentation',
         'Kevin Locke \\textless{}kevin@kevinlocke.name\\textgreater{}',
         'manual',
-    )
+    ),
 ]
 
 
@@ -187,7 +187,7 @@ man_pages = [
         description,
         [author],
         1,
-    )
+    ),
 ]
 
 
@@ -205,7 +205,7 @@ texinfo_documents = [
         'python-project-template',
         description,
         'Miscellaneous',
-    )
+    ),
 ]
 
 

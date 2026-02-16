@@ -50,7 +50,9 @@ class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
 def test_argcomplete_dash_options(
-    mock_stderr: Mock, mock_stdout: Mock, mock_fdopen_comp: Mock
+    mock_stderr: Mock,
+    mock_stdout: Mock,
+    mock_fdopen_comp: Mock,
 ) -> None:
     assert cli.main(sys.argv) == 0
     assert not mock_stderr.getvalue()
@@ -75,8 +77,8 @@ def test_argcomplete_dash_options(
                 '--verbose',
                 '-V',
                 '--version',
-            )
-        )
+            ),
+        ),
     )
 
 
@@ -95,7 +97,9 @@ def test_argcomplete_dash_options(
 @patch('sys.stdout', new_callable=StringIO)
 @patch('sys.stderr', new_callable=StringIO)
 def test_argcomplete_output_files(
-    mock_stderr: Mock, mock_stdout: Mock, mock_fdopen_comp: Mock
+    mock_stderr: Mock,
+    mock_stdout: Mock,
+    mock_fdopen_comp: Mock,
 ) -> None:
     assert cli.main(sys.argv) == 0
     assert not mock_stderr.getvalue()
@@ -108,5 +112,5 @@ def test_argcomplete_output_files(
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
 
     mock_fdopen_comp.side_effect.completion_file.write.assert_called_once_with(
-        'LICENSE.txt '
+        'LICENSE.txt ',
     )

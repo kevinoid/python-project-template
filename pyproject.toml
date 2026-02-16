@@ -338,7 +338,6 @@ ignore = [
     'D212', # multi-line-summary-first-line
 
     # TODO:
-    'COM812',
     'D107',
     'FLY002',
     'I001',
