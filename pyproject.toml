@@ -206,6 +206,7 @@ use_parentheses = true
 
 [tool.mypy]
 disallow_any_unimported = true
+exclude_gitignore = true
 strict = true
 warn_return_any = true
 warn_unreachable = true
