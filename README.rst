@@ -56,29 +56,12 @@ Introductory Example
   I was initially against this idea, but was swayed by Ionel Cristian Mărieș'
   `Packaging a python library`_, Hynek Schlawack's `Testing & Packaging`_, and
   pytest `Good Integration Practices`_.
-* Minimally constrained top-level dependencies are declared in
-  ``requirements/*.in`` files.  Full, exact, hash-checked_, known-good
-  dependency versions are stored in ``requirements/*.txt``.  These can be
-  generated using ``pip-compile`` from pip-tools_ or (if hashes are not
-  required) ``pip install && pip freeze`` in a fresh virtual environment:
-
-  .. code:: sh
-
-      for requirements in requirements/*.in; do
-          pip-compile --generate-hashes "$requirements"
-      done
-
-  This system has the benefit of allowing easy installation of fully or
-  minimally constrained dependencies from many tools (``pip``, ``tox``, etc.)
-  without duplication.
-
-  I have experimented with several other approaches, including `pip constraint
-  files`_ (``constraints.txt``), Pipenv_ (``Pipfile``/``Pipfile.lock``),
-  Poetry_ (``pyproject.toml``), and a few others, along with other tools to
-  sync with or generate ``requirements.txt`` and ``setup.cfg``.  Although these
-  approaches have several benefits, I think the additional complexity (both
-  inherent and when integrating with other tools like tox) currently outweighs
-  their value.
+* Dependencies are declared in ``project.dependencies``, optional dependencies
+  in ``project.optional-dependencies``, and development dependencies in
+  ``dependency-groups`` (from `PEP 735`_).  Full, exact, hash-checked_,
+  known-good dependency versions are stored in ``requirements/*.txt``.  These
+  can be generated using ``pip-compile`` from pip-tools_ or (if hashes are not
+  required) ``pip install && pip freeze`` in a fresh virtual environment.
 * `tox`_ (used for CI) is configured to use minimally constrained dependencies.
   This is desirable for library packages, since user installs are minimally
   constrained.  If the package will be deployed as an application using
@@ -144,9 +127,8 @@ terms of `CC0 1.0 Universal`_.
 .. _GitLab CI: https://docs.gitlab.com/ee/ci/
 .. _Good Integration Practices: https://docs.pytest.org/en/latest/goodpractices.html#tests-outside-application-code
 .. _MIT License: https://github.com/kevinoid/python-project-template/blob/main/LICENSE.txt
+.. _PEP 735: https://peps.python.org/pep-0735/
 .. _Packaging a python library: https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure
-.. _Pipenv: https://pipenv.readthedocs.io/
-.. _Poetry: https://poetry.eustace.io/
 .. _Read the Docs: https://readthedocs.org/
 .. _Sphinx: https://www.sphinx-doc.org/
 .. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
@@ -154,7 +136,6 @@ terms of `CC0 1.0 Universal`_.
 .. _coveralls: https://coveralls.io/
 .. _flake8: https://flake8.readthedocs.io/
 .. _hash-checked: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
-.. _pip constraint files: https://pip.pypa.io/en/stable/user_guide/#constraints-files
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. _pip: https://pip.pypa.io/
 .. _project documentation: https://python-project-template.readthedocs.io/
