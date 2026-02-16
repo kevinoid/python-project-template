@@ -13,31 +13,14 @@ https://www.sphinx-doc.org/en/master/config
 import os.path
 import re
 import sys
-
-from configparser import ConfigParser
+import tomllib
 
 # Add parent dir to path for importing __version__ from packagename below
 _project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.insert(0, os.path.join(_project_path, 'src'))
 
 
-_setup_cfg = ConfigParser()
-_setup_cfg_path = os.path.join(_project_path, 'setup.cfg')
-with open(_setup_cfg_path, encoding='utf8') as _setup_file:
-    _setup_cfg.read_file(_setup_file)
-
-
 # -- Project information -----------------------------------------------------
-
-project = _setup_cfg.get('metadata', 'friendly_name')
-_description = _setup_cfg.get('metadata', 'description')
-author = '%s <%s>' % (  # pylint: disable=consider-using-f-string
-    _setup_cfg.get('metadata', 'author'),
-    _setup_cfg.get('metadata', 'author_email'),
-)
-# pylint: disable=redefined-builtin
-copyright = _setup_cfg.get('metadata', 'copyright')
-# pylint: enable=redefined-builtin
 
 # The full version, including alpha/beta/rc tags
 from packagename import __version__ as release  # noqa: E402
@@ -49,6 +32,22 @@ version = _version_match.group(0)
 
 
 # -- General configuration ---------------------------------------------------
+
+project = 'Python Project Template'
+# pylint: disable=redefined-builtin
+copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
+# pylint: enable=redefined-builtin
+
+# Load configuration from pyproject.toml
+_pyproject_path = os.path.join(_project_path, 'pyproject.toml')
+with open(_pyproject_path, 'rb') as _pyproject_file:
+    _pyproject = tomllib.load(_pyproject_file)
+
+_pyproject_project = _pyproject['project']
+description = _pyproject_project['description']
+author = ', '.join(
+    f"{a['name']} <{a['email']}>" for a in _pyproject_project['authors']
+)
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
@@ -183,7 +182,7 @@ man_pages = [
     (
         'cli',
         'packagename',
-        _description,
+        description,
         [author],
         1,
     )
@@ -202,7 +201,7 @@ texinfo_documents = [
         'python-project-template Documentation',
         author,
         'python-project-template',
-        _description,
+        description,
         'Miscellaneous',
     )
 ]

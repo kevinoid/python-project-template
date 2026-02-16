@@ -25,8 +25,6 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'python-project-template'
-# Human 'friendly' project name for sphinx and other non-setup uses
-friendly-name = 'Python Project Template'
 description = 'Short description of this package and its purpose.'
 readme = 'README.rst'
 # license should be a valid SPDX license expression
@@ -35,8 +33,6 @@ readme = 'README.rst'
 license = 'MIT'
 license-files = ['LICENSE.txt']
 authors = [{name = 'Kevin Locke', email = 'kevin@kevinlocke.name'}]
-# Copyright statement for sphinx and other non-setup uses
-copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
 # From PyPI classifiers list: https://pypi.org/classifiers/
 classifiers = [
     'Development Status :: 3 - Alpha',
