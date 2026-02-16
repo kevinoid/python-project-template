@@ -42,7 +42,9 @@ the terms of the MIT License for more details.'''
 _logger = logging.getLogger(__name__)
 
 
-def _build_argument_parser(**kwargs: Any) -> argparse.ArgumentParser:
+def _build_argument_parser(
+    **kwargs: Any,  # noqa: ANN401
+) -> argparse.ArgumentParser:
     """
     Build parser for command line options.
 
