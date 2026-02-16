@@ -6,10 +6,10 @@
 
 import argparse
 import logging
-import os.path
 import sys
 
 from collections.abc import Sequence
+from pathlib import Path
 from typing import Any
 
 try:
@@ -101,7 +101,7 @@ def main(argv: Sequence[str] = sys.argv) -> int:
     :return: exit code
     """
     parser = _build_argument_parser(
-        prog=os.path.basename(argv[0]),
+        prog=Path(argv[0]).name,
     )
 
     if _HAVE_AUTOCOMPLETE:

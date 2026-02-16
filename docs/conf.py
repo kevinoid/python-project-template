@@ -10,14 +10,15 @@ https://www.sphinx-doc.org/en/master/config
 # pylint: disable=invalid-name, wrong-import-position
 # isort:skip_file
 
-import os.path
 import re
 import sys
 import tomllib
 
+from pathlib import Path
+
 # Add parent dir to path for importing __version__ from packagename below
-_project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-sys.path.insert(0, os.path.join(_project_path, 'src'))
+_project_path = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_project_path / 'src'))
 
 
 # -- Project information -----------------------------------------------------
@@ -41,8 +42,8 @@ copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
 # pylint: enable=redefined-builtin
 
 # Load configuration from pyproject.toml
-_pyproject_path = os.path.join(_project_path, 'pyproject.toml')
-with open(_pyproject_path, 'rb') as _pyproject_file:
+_pyproject_path = _project_path / 'pyproject.toml'
+with _pyproject_path.open('rb') as _pyproject_file:
     _pyproject = tomllib.load(_pyproject_file)
 
 _pyproject_project = _pyproject['project']

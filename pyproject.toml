@@ -336,14 +336,11 @@ select = ['ALL']
 ignore = [
     'D203', # incorrect-blank-line-before-class
     'D212', # multi-line-summary-first-line
+    'PTH123', # builtin-open
 
     # FIXME: I001 fails on blank line between `import X` and `from Y import Z`
     # However, it is allowed by isort and ruff format
     'I001',
-    'PTH118',
-    'PTH119',
-    'PTH120',
-    'PTH123',
 ]
 
 [tool.ruff.lint.flake8-quotes]
