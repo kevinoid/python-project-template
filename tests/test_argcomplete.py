@@ -66,7 +66,7 @@ def test_argcomplete_dash_options(
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
 
     mock_fdopen_comp.side_effect.completion_file.write.assert_called_once_with(
-        '\v'.join(
+        '\v'.join(  # noqa: FLY002
             (
                 '-h',
                 '--help',
