@@ -9,7 +9,8 @@ import logging
 import os.path
 import sys
 
-from typing import Any, Sequence
+from collections.abc import Sequence
+from typing import Any
 
 try:
     from argcomplete import autocomplete

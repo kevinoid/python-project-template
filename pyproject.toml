@@ -343,7 +343,6 @@ ignore = [
     'PTH119',
     'PTH120',
     'PTH123',
-    'UP035',
 ]
 
 [tool.ruff.lint.flake8-quotes]
