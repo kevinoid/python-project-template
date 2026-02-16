@@ -35,7 +35,9 @@ version = _version_match.group(0)
 
 project = 'Python Project Template'
 # pylint: disable=redefined-builtin
+# ruff: disable[A001]
 copyright = 'Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>'
+# ruff: enable[A001]
 # pylint: enable=redefined-builtin
 
 # Load configuration from pyproject.toml
