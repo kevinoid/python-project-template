@@ -109,11 +109,13 @@ dependencies = [
 
 [project.optional-dependencies]
 # Optional dependencies
+# https://packaging.python.org/en/latest/specifications/pyproject-toml/#dependencies-optional-dependencies
 # https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#optional-dependencies
 argcomplete = ['argcomplete']
 
 [project.scripts]
 # Define entry points for automatic executable creation
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 # https://setuptools.pypa.io/en/latest/userguide/quickstart.html#entry-points-and-automatic-script-creation
 packagename = 'packagename.cli:main'
 
