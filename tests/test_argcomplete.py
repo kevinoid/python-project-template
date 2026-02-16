@@ -46,7 +46,7 @@ class ArgcompleteFdopenMock:  # pylint: disable=too-few-public-methods
         if fd == _ARGCOMPLETE_ERR_FD:
             return self.error_file
 
-        return cast(Mock, mock_open().return_value)
+        return cast('Mock', mock_open().return_value)
 
 
 @patch.dict(
