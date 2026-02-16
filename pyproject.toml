@@ -339,7 +339,6 @@ ignore = [
 
     # TODO:
     'I001',
-    'PLR2004',
     'PTH118',
     'PTH119',
     'PTH120',

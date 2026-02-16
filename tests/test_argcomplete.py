@@ -73,7 +73,7 @@ def test_argcomplete_dash_options(
 
     mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_OUT_FD, 'w')
     mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_ERR_FD, 'w')
-    assert mock_fdopen_comp.call_count == 2
+    assert mock_fdopen_comp.call_count == 2  # noqa: PLR2004
 
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
 
@@ -120,7 +120,7 @@ def test_argcomplete_output_files(
 
     mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_OUT_FD, 'w')
     mock_fdopen_comp.assert_any_call(_ARGCOMPLETE_ERR_FD, 'w')
-    assert mock_fdopen_comp.call_count == 2
+    assert mock_fdopen_comp.call_count == 2  # noqa: PLR2004
 
     mock_fdopen_comp.side_effect.error_file.write.assert_not_called()
 
