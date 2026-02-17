@@ -23,5 +23,5 @@ pylint
 pyroma
 setuptools < 82
 types-mock
-types-setuptools < 82
+types-setuptools < 83
 vulture
