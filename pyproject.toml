@@ -68,7 +68,9 @@ docs = [
 test = [
     # Abstract top-level dependencies for running tests
     'coverage[toml]',
-    'pytest',
+    # Support for [tool.pytest] was added in 9.0
+    # https://docs.pytest.org/en/9.0.x/reference/customize.html#pyproject-toml
+    'pytest >= 9',
     # Support for pyproject.toml added in 2.12.0
     # https://github.com/pytest-dev/pytest-cov/pull/410
     'pytest-cov >= 2.12.0',
@@ -304,7 +306,7 @@ enable = [
     'useless-suppression',
 ]
 
-[tool.pytest.ini_options]
+[tool.pytest]
 addopts = [
     '--strict-config',
     '--strict-markers',
