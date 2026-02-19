@@ -334,15 +334,14 @@ ignore = [
     'D212',     # multi-line-summary-first-line
     'Q001',     # bad-quotes-multiline-string
     'PTH123',   # builtin-open
-
-    # FIXME: I001 fails on blank line between `import X` and `from Y import Z`
-    # However, it is allowed by isort and ruff format
-    'I001',
 ]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = 'single'
 multiline-quotes = 'single'
+
+[tool.ruff.lint.isort]
+lines-between-types = 1
 
 [tool.ruff.lint.per-file-ignores]
 'docs/*' = [
