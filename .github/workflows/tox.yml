@@ -38,7 +38,7 @@ jobs:
     - name: Display Python version
       run: python --version
     - name: Install dependencies
-      run: python -m pip install --upgrade setuptools tox wheel
+      run: python -m pip install --upgrade setuptools tox
     - name: Run tox
       run: python -m tox -e lint,docs,py3
     - name: Build wheel
@@ -99,7 +99,7 @@ jobs:
       run: python --version
     - name: Install dependencies
       run: |-
-        ${{ matrix.python.exe }} -m pip install --upgrade setuptools tox wheel
+        ${{ matrix.python.exe }} -m pip install --upgrade setuptools tox
     - name: Run tox
       run: ${{ matrix.python.exe }} -m tox -e ${{ matrix.python.toxenv }}
     - name: Build wheel

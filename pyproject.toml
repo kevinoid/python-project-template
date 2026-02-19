@@ -9,9 +9,9 @@ requires = [
     # https://github.com/pypa/setuptools/pull/862
     # Support for setuptools.build_meta was added in 36.6.0 by
     # https://github.com/pypa/setuptools/pull/1143
-    'setuptools>=36.6.0',
-    # For building wheels
-    'wheel',
+    # bdist_wheel was adopted from wheel in 70.1.0
+    # https://github.com/pypa/setuptools/issues/1386
+    'setuptools>=70.1.0',
 ]
 # Specify build-backend to avoid causing tox 3.7.0 to fail with:
 # ERROR: missing build-backend key at build-system section inside pyproject.toml
