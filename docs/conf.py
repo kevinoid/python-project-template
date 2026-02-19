@@ -49,7 +49,7 @@ with _pyproject_path.open('rb') as _pyproject_file:
 _pyproject_project = _pyproject['project']
 description = _pyproject_project['description']
 author = ', '.join(
-    f"{a['name']} <{a['email']}>" for a in _pyproject_project['authors']
+    f'{a["name"]} <{a["email"]}>' for a in _pyproject_project['authors']
 )
 
 # If your documentation needs a minimal Sphinx version, state it here.

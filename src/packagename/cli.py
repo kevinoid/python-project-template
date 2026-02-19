@@ -28,7 +28,10 @@ __all__ = [
 # Short license message varies by license.
 # The text below is based on the GPL short text, modified for the MIT License.
 # Change as appropriate.
-_VERSION_MESSAGE = '%(prog)s ' + __version__ + '''
+_VERSION_MESSAGE = (
+    '%(prog)s '
+    + __version__
+    + """
 
 Copyright 2019-2026 Kevin Locke <kevin@kevinlocke.name>
 
@@ -38,7 +41,8 @@ it under the terms of the MIT License.
 %(prog)s is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-the terms of the MIT License for more details.'''
+the terms of the MIT License for more details."""
+)
 
 _logger = logging.getLogger(__name__)
 
