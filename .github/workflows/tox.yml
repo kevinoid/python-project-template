@@ -42,7 +42,7 @@ jobs:
     - name: Run tox
       run: python -m tox -e lint,docs,py3
     - name: Build wheel
-      run: python setup.py bdist_wheel
+      run: python -m pip wheel --no-deps -w dist .
     - name: Archive wheel
       uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f  # v6.0.0
       with:
@@ -103,7 +103,7 @@ jobs:
     - name: Run tox
       run: ${{ matrix.python.exe }} -m tox -e ${{ matrix.python.toxenv }}
     - name: Build wheel
-      run: ${{ matrix.python.exe }} setup.py bdist_wheel
+      run: ${{ matrix.python.exe }} -m pip wheel --no-deps -w dist .
     - name: Archive wheel
       uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f  # v6.0.0
       with:
