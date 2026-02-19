@@ -323,6 +323,7 @@ exclude = [
 line-length = 80
 
 [tool.ruff.format]
+docstring-code-format = true
 quote-style = 'single'
 
 [tool.ruff.lint]
