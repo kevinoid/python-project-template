@@ -52,7 +52,7 @@ lint = [
     'ruff',
     # Require setuptools with pkg_resources as a workaround for
     # https://github.com/globality-corp/flake8-logging-format/issues/80
-    'setuptools < 82',
+    'setuptools < 83',
     'types-mock',
     'types-setuptools',
     'vulture',
