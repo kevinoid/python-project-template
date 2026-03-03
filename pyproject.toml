@@ -130,11 +130,14 @@ Tracker = 'https://github.com/kevinoid/python-project-template/issues'
 
 [tool.setuptools]
 zip-safe = true
-package-dir = {'' = 'src'}
 # Use packages for directories, py_modules for single-file modules
 # See https://packaging.python.org/guides/distributing-packages-using-setuptools/#packages
 # py_modules = packagename
 include-package-data = false
+
+[tool.setuptools.package-dir]
+# tombi: lint.rules.key-empty.disabled = true
+'' = 'src'
 
 [tool.setuptools.packages.find]
 exclude = ['tests']
