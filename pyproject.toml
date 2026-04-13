@@ -31,7 +31,7 @@ lint = [
     # Abstract top-level development dependencies (e.g. linters and other tools)
     # Support for pyproject.toml added in 1.7.1
     # https://github.com/PyCQA/bandit/pull/401
-    'bandit[toml] >= 1.7.1',
+    'bandit[toml] >= 1.9.4',
     'flake8',
     'flake8-bugbear',
     'flake8-comprehensions',
