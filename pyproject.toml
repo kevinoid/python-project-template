@@ -101,7 +101,7 @@ classifiers = [
     'Topic :: Software Development',
 ]
 # (Optional) Additional keywords used to assist searching.
-keywords = ['sample setuptools development']
+keywords = ['sample', 'setuptools', 'development']
 requires-python = '>=3.10'
 dynamic = ['version']
 dependencies = [
