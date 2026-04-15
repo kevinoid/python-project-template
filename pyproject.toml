@@ -337,6 +337,8 @@ ignore = [
     'D212',     # multi-line-summary-first-line
     'Q001',     # bad-quotes-multiline-string
     'PTH123',   # builtin-open
+    'TD002',    # missing-todo-author
+    'TD003',    # missing-todo-link
 ]
 
 [tool.ruff.lint.flake8-quotes]
