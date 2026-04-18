@@ -59,9 +59,8 @@ lint = [
 ]
 docs = [
     # Abstract top-level documentation generator dependencies
-    'Sphinx',
+    'Sphinx >= 8.2.0',
     'sphinx-argparse',
-    'sphinxcontrib-apidoc',
 ]
 test = [
     # Abstract top-level dependencies for running tests
