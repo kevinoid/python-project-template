@@ -339,6 +339,7 @@ ignore = [
     'PTH123',   # builtin-open
     'TD002',    # missing-todo-author
     'TD003',    # missing-todo-link
+    'TRY003',   # raise-vanilla-args
 ]
 
 [tool.ruff.lint.flake8-quotes]
