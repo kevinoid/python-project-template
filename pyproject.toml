@@ -285,6 +285,8 @@ load-plugins = [
 [tool.pylint.messages_control]
 disable = [
     'fixme',
+    # Ruff E501 is more lenient.  Covered by black/ruff-format anyway.
+    'line-too-long',
     'locally-disabled',
     # Covered by pydocstyle/flake8-docstrings which can easily ignore tests
     # See https://github.com/PyCQA/pylint/issues/618
