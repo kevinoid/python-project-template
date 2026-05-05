@@ -13,3 +13,7 @@ build:
     # Since the install step is overridden, pip is not updated automatically.
     - pip install --upgrade pip
     - pip install --group docs
+
+sphinx:
+  configuration: docs/conf.py
+  fail_on_warning: true
