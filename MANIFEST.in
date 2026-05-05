@@ -10,5 +10,5 @@ recursive-include src py.typed
 # Include documentation and tests in source package
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
 recursive-include docs *.py *.rst
-recursive-include tests *.py
+recursive-include tests *.py *.rst *.txt
 include tox.ini
