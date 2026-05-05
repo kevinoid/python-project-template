@@ -3,7 +3,13 @@
 
 version: 2
 
-python:
-  install:
-  - path: .
-  - requirements: requirements/docs.in
+build:
+  jobs:
+    # Read the Docs doesn't support Dependency Groups in pip method:
+    # https://github.com/readthedocs/readthedocs.org/issues/11766
+    # Instead, override the install step to install the Dependency Group
+    # https://docs.readthedocs.com/platform/stable/build-customization.html#install-dependencies-from-dependency-groups
+    install:
+    # Since the install step is overridden, pip is not updated automatically.
+    - pip install --upgrade pip
+    - pip install --group docs
