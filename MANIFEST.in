@@ -6,8 +6,9 @@ include *.rst *.txt
 # Include any PEP 0561 inline type information marker files
 recursive-include src py.typed
 
-# Include documentation and tests in source package
+# Include documentation, tests, and test configuration in source package
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
+recursive-include .vulture *.py
 recursive-include docs *.py *.rst
 recursive-include tests *.py *.rst *.txt
 include tox.ini
