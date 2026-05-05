@@ -11,3 +11,12 @@ recursive-include src py.typed
 recursive-include docs *.py *.rst
 recursive-include tests *.py *.rst *.txt
 include tox.ini
+
+# Include .gitignore as .ignore for ruff, since it will only use .gitignore if
+# .git dir exists in the same or ancestor directory:
+# https://github.com/astral-sh/ruff/issues/5930
+# However, it treats .ignore file like .gitignore unconditionally:
+# https://docs.rs/ignore/latest/ignore/struct.WalkBuilder.html#ignore-rules
+# Note: .ignore is a symlink to .gitignore to avoid duplication.
+# setuptools includes the content in the sdist tarball, not a link.
+include .ignore
