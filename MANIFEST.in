@@ -10,7 +10,7 @@ recursive-include src py.typed
 # See https://github.com/PyCQA/pydocstyle/pull/252#issuecomment-297987794
 recursive-include .vulture *.py
 recursive-include docs *.py *.rst
-recursive-include tests *.py *.rst *.txt
+recursive-include tests *.py
 include tox.ini
 
 # Include .gitignore as .ignore for ruff, since it will only use .gitignore if
