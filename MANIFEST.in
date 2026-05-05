@@ -1,8 +1,7 @@
 # Additional files to include in package source distribution
 # https://packaging.python.org/en/latest/guides/using-manifest-in/
 
-include LICENSE.txt
-include README.rst
+include *.rst *.txt
 
 # Include any PEP 0561 inline type information marker files
 recursive-include src py.typed
