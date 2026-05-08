@@ -123,7 +123,9 @@ def main(argv: Sequence[str] = sys.argv) -> int:
 
     # Set log level based on verbosity requested (default of INFO)
     verbosity = (args.quiet or 0) - (args.verbose or 0)
-    logging.basicConfig(level=logging.INFO + verbosity * 10)
+    logging.basicConfig(
+        format='%(levelname)s: %(message)s', level=logging.INFO + verbosity * 10
+    )
 
     # Log version to aid debugging
     _logger.debug('packagename %s', __version__)
