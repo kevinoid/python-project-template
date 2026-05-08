@@ -72,7 +72,8 @@ Introductory Example
 Installation
 ============
 
-`This package`_ can be installed using pip_, by running:
+`This package`_ can be installed using Python package managers (pip_, pipx_,
+uv_, conda_, pixi_, etc.), in the usual ways.  For example, by running:
 
 .. code:: sh
 
@@ -132,12 +133,15 @@ terms of `CC0 1.0 Universal`_.
 .. _Read the Docs: https://readthedocs.org/
 .. _Sphinx: https://www.sphinx-doc.org/
 .. _Testing & Packaging: https://hynek.me/articles/testing-packaging/
+.. _conda: https://docs.conda.io/
 .. _contributing guidelines: https://github.com/kevinoid/python-project-template/blob/main/CONTRIBUTING.rst
 .. _coveralls: https://coveralls.io/
 .. _flake8: https://flake8.readthedocs.io/
 .. _hash-checked: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
 .. _pip-tools: https://github.com/jazzband/pip-tools
 .. _pip: https://pip.pypa.io/
+.. _pipx: https://pipx.pypa.io/
+.. _pixi: https://pixi.prefix.dev/
 .. _project documentation: https://python-project-template.readthedocs.io/
 .. _pyroma: https://github.com/regebro/pyroma
 .. _pytest: https://pytest.org/
@@ -147,3 +151,4 @@ terms of `CC0 1.0 Universal`_.
 .. _template: https://github.com/kevinoid/python-project-template
 .. _this package: https://pypi.org/project/python-project-template/
 .. _tox: https://tox.readthedocs.io
+.. _uv: https://docs.astral.sh/uv/
