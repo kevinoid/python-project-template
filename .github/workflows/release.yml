@@ -1,0 +1,79 @@
+# GitHub Actions release workflow configuration
+# https://docs.github.com/actions/reference/workflow-syntax-for-github-actions
+# https://docs.github.com/actions/guides/building-and-testing-python
+
+name: Release
+
+# Note: on key treated as boolean key by YAML
+# https://github.com/adrienverge/yamllint/issues/158#issuecomment-454313233
+# However, GitHub Actions documentation is consistent in using it unquoted.
+on:   # yamllint disable-line rule:truthy
+  release:
+    types:
+    - created
+    - edited
+    - published
+
+permissions: {}
+
+jobs:
+  test_and_build:
+    uses: ./.github/workflows/tox.yml
+
+
+  publish_to_testpypi:
+    name: Publish draft release to TestPyPI
+    if: github.event.release.draft == true
+    needs: [test_and_build]
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testpypi
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - name: Download sdist
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: sdist
+        path: dist/
+    - name: Download wheel
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: wheel
+        path: dist/
+    - name: Publish to TestPyPI
+      uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14.0
+      with:
+        repository-url: https://test.pypi.org/legacy/
+
+
+  publish_to_pypi:
+    name: Publish release to PyPI
+    if: github.event.action == 'published' && github.event.release.draft == false
+    needs: [test_and_build]
+    runs-on: ubuntu-latest
+
+    environment:
+      name: pypi
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - name: Download sdist
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: sdist
+        path: dist/
+    - name: Download wheel
+      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+      with:
+        name: wheel
+        path: dist/
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14.0
