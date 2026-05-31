@@ -8,10 +8,16 @@ name: Release
 # https://github.com/adrienverge/yamllint/issues/158#issuecomment-454313233
 # However, GitHub Actions documentation is consistent in using it unquoted.
 on:   # yamllint disable-line rule:truthy
+  # Publish to TestPyPI when a version tag is pushed (e.g. v1.2.3).
+  # Note: Draft releases do not trigger workflows, which is why tag is used:
+  # See https://github.com/orgs/community/discussions/7118
+  push:
+    tags:
+    - v*
+
+  # Publish to PyPI when a GitHub release is published
   release:
     types:
-    - created
-    - edited
     - published
 
 permissions: {}
@@ -23,7 +29,7 @@ jobs:
 
   publish_to_testpypi:
     name: Publish draft release to TestPyPI
-    if: github.event.release.draft == true
+    if: github.event_name == 'push'
     needs: [test_and_build]
     runs-on: ubuntu-latest
 
@@ -53,7 +59,7 @@ jobs:
 
   publish_to_pypi:
     name: Publish release to PyPI
-    if: github.event.action == 'published' && github.event.release.draft == false
+    if: github.event_name == 'release'
     needs: [test_and_build]
     runs-on: ubuntu-latest
 
