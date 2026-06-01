@@ -8,13 +8,6 @@ name: Release
 # https://github.com/adrienverge/yamllint/issues/158#issuecomment-454313233
 # However, GitHub Actions documentation is consistent in using it unquoted.
 on:   # yamllint disable-line rule:truthy
-  # Publish to TestPyPI when a version tag is pushed (e.g. v1.2.3).
-  # Note: Draft releases do not trigger workflows, which is why tag is used:
-  # See https://github.com/orgs/community/discussions/7118
-  push:
-    tags:
-    - v*
-
   # Publish to PyPI when a GitHub release is published
   release:
     types:
@@ -27,65 +20,8 @@ jobs:
     uses: ./.github/workflows/tox.yml
 
 
-  publish_to_testpypi:
-    name: Publish draft release to TestPyPI
-    if: github.event_name == 'push'
-    needs: [test_and_build]
-    runs-on: ubuntu-latest
-
-    environment:
-      name: testpypi
-
-    permissions:
-      contents: read
-      id-token: write
-
-    steps:
-    - name: Get tag URL
-      id: tag_object
-      env:
-        GH_TOKEN: ${{ github.token }}
-      shell: bash
-      run: |
-        gh api \
-          "repos/$GITHUB_REPOSITORY/git/$GITHUB_REF" \
-          --template 'sha={{.object.sha}}
-        type={{.object.type}}
-        url={{.object.url}}' >"$GITHUB_OUTPUT"
-    - name: Get tag verification
-      # Annotated tag objects are 'tag', lightweight are 'commit'
-      if: steps.tag_url.outputs.type == 'tag'
-      id: tag_verified
-      env:
-        GH_TOKEN: ${{ github.token }}
-        TAG_URL: ${{ steps.tag_object.outputs.url }}
-      shell: bash
-      run: |
-        gh api \
-          "$TAG_URL" \
-          --template 'verified={{.verification.verified}}' >"$GITHUB_OUTPUT"
-    - name: Download sdist
-      if: steps.tag_verified.outputs.verified == 'true'
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
-      with:
-        name: sdist
-        path: dist/
-    - name: Download wheel
-      if: steps.tag_verified.outputs.verified == 'true'
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
-      with:
-        name: wheel
-        path: dist/
-    - name: Publish to TestPyPI
-      if: steps.tag_verified.outputs.verified == 'true'
-      uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14.0
-      with:
-        repository-url: https://test.pypi.org/legacy/
-
-
   publish_to_pypi:
     name: Publish release to PyPI
-    if: github.event_name == 'release'
     needs: [test_and_build]
     runs-on: ubuntu-latest
 
