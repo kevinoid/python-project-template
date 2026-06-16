@@ -38,7 +38,7 @@ lint = [
     'flake8-docstrings',
     'flake8-quotes',
     'flake8-logging-format',
-    'flake8-rst-docstrings >= 0.0.11',
+    'flake8-rst-docstrings >= 0.4.0',
     'isort',
     'mypy',
     # Support for pyproject.toml added in 6.1.0
