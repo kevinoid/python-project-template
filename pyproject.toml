@@ -70,7 +70,7 @@ test = [
     'pytest >= 9',
     # Support for pyproject.toml added in 2.12.0
     # https://github.com/pytest-dev/pytest-cov/pull/410
-    'pytest-cov >= 2.12.0',
+    'pytest-cov >= 7.1.0',
 ]
 
 [project]
