@@ -14,3 +14,8 @@ indent_style = space
 
 [*.py]
 max_line_length = 80
+
+[*.diff]
+# Do not trim trailing whitespace from diffs (e.g. git patch edits)
+# It can break the format or cause the diff to fail to apply.
+trim_trailing_whitespace = false
