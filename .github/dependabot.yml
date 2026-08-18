@@ -14,3 +14,11 @@ updates:
     interval: "daily"
   cooldown:
     default-days: 7
+  # Note: pip default "auto" versioning strategy is "increase" for application,
+  # "widen" for library (detected if pyproject.toml and published to PyPI):
+  # https://github.com/dependabot/dependabot-core/issues/6685
+  # This is error-prone and changes after publishing.
+  # Therefore, set a versioning strategy explicitly.
+  # Note: "widen" is unsupported for Python.  See:
+  # https://github.com/dependabot/dependabot-core/issues/6630
+  versioning-strategy: "increase-if-necessary"
