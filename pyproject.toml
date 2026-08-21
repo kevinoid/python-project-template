@@ -60,7 +60,7 @@ lint = [
 docs = [
     # Abstract top-level documentation generator dependencies
     'Sphinx >= 8.2.0',
-    'sphinx-argparse',
+    'sphinx-argparse >= 0.6.1',
 ]
 test = [
     # Abstract top-level dependencies for running tests
