@@ -45,7 +45,7 @@ test:primary:
 # Test with earliest supported version of Python 3
 test:py311:
   stage: test:secondary
-  image: python:3.10-slim
+  image: python:3.11-slim
   script: $PYTHON -m tox -vv -e py311
 
 # Test with latest supported version of PyPy 3
