@@ -90,7 +90,6 @@ classifiers = [
     'Operating System :: OS Independent',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
     'Programming Language :: Python :: 3.13',
@@ -102,7 +101,7 @@ classifiers = [
 ]
 # (Optional) Additional keywords used to assist searching.
 keywords = ['sample', 'setuptools', 'development']
-requires-python = '>=3.10'
+requires-python = '>=3.11'
 dynamic = ['version']
 dependencies = [
     # Abstract top-level run-time dependencies
